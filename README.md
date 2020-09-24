@@ -6,6 +6,7 @@
   * Likes
   * Uploaded images?
   * One relationship or many with profile pic?
+  * groups?
   
   
 **2.   A comments table with a belongs to relationship to a user**
@@ -19,9 +20,26 @@
   
 **4.   A Table for posts with a belongs to relationship to a user**
   * Possible images, gifs, etc
+  * Posts should have a placeType that will determine if it is public or a group post, maybe a string to reference group table
   
   
 **5.   Tables for images? gifs? uploading them?**
+
+**6.   Table for groups that has many users**
+ * Groups can have a title, 
+ * Possible group chat/instant messenger if I have time or in the future
+ 
+ ### Features 
+ **1.   Should be able to create a profile**
+ 
+ **2.   Upload a profile pic**
+ 
+ **3.   Like other posts/comment on posts/create posts**
+ 
+ **4.   Join groups (Extremely important)**
+ 
+ **5.   If time allows or in the future, instant messaging/group messaging**
+ 
 
 
 
