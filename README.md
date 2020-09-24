@@ -40,6 +40,11 @@
  
  **5.   If time allows or in the future, instant messaging/group messaging**
  
+### The UI/UX
+**1.   Should use React/Redux**
 
+**2.   Should use Material UI**
+
+**3.   Should be intuitive and fun**
 
 
