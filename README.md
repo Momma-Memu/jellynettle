@@ -38,7 +38,9 @@
  
  **4.   Join groups (Extremely important)**
  
- **5.   If time allows or in the future, instant messaging/group messaging**
+ **5.   Infinite scroll if time allows/future**
+ 
+ **6.   If time allows or in the future, instant messaging/group messaging**
  
 ### The UI/UX
 **1.   Should use React/Redux**
