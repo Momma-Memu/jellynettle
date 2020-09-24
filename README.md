@@ -40,7 +40,15 @@
  
  **5.   Infinite scroll if time allows/future**
  
- **6.   If time allows or in the future, instant messaging/group messaging**
+ **6.   Adding freinds**
+  * Friend suggestions?
+  
+  **7.   Text size limit for messages/comments/posts**
+ 
+ **8.   If time allows or in the future, instant messaging/group messaging**
+ 
+ 
+ 
  
 ### The UI/UX
 **1.   Should use React/Redux**
