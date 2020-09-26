@@ -48,8 +48,8 @@ const SignUp = () => {
                 <NavLink exact to='/login' className={containerClasses.signUp}>
                 Already have an account? Click here!</NavLink>
             </Container>
-            <img src={bg1} className='bg1'/>
-            <img src={bg2} className='bg2' />
+            <img src={bg1} className='bg1' alt='people'/>
+            <img src={bg2} className='bg2' alt='people'/>
         </div>
     )
 }

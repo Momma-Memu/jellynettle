@@ -52,3 +52,36 @@ code {
     display: none;
   }
 }
+
+/* Safety, about, support sections */
+
+.infoHeader{
+  /* margin-left: 10px;
+  margin-right: 10px; */
+  text-align: center;
+}
+
+.paragraphs{
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.safetyLink{
+  text-decoration: none;
+  color: white;
+  border: 1px solid rgb(112, 65, 187);
+  background-color: rgb(112, 65, 187);
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+}
+
+.safetyLink:hover{
+  background-color: rgb(55, 96, 161);
+  border: 1px solid rgb(55, 96, 161);
+}
+
+.safetyLinkBox{
+  text-align: center;
+}
