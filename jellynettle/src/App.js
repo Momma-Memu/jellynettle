@@ -13,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>
+        <Route path='/about' component={About}/>
       </BrowserRouter>
     </div>
   );
