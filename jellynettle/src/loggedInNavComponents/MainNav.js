@@ -8,7 +8,9 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import { NavLink } from 'react-router-dom'
+
 
 
 const MainNav = () => {
@@ -28,11 +30,18 @@ const MainNav = () => {
                 <NotificationsNoneIcon className={navClass.notifications} />
             </Tooltip>
             <Tooltip title='Profile'>
-                <AccountCircleIcon className={navClass.account}/>
+                <NavLink exact to='/profile'>
+                    <AccountCircleIcon className={navClass.account}/>
+                </NavLink>
             </Tooltip>
             <Tooltip title='Settings'>
                 <NavLink exact to='/settings'>
                     <SettingsIcon className={navClass.settings} />
+                </NavLink>
+            </Tooltip>
+            <Tooltip title='Logout'>
+                <NavLink exact to='/login'>
+                    <MeetingRoomIcon className={navClass.logout}/>
                 </NavLink>
             </Tooltip>
         </div>

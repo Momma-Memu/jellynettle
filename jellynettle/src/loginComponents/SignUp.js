@@ -31,6 +31,11 @@ const SignUp = () => {
                 autoComplete="current-password"/>
                 <TextField className={fieldClasses.root}
                 required id="standard-required"
+                label="Confirm Password"
+                type="password"
+                autoComplete="current-password"/>
+                <TextField className={fieldClasses.root}
+                required id="standard-required"
                 label="Username"
                 type="Standard"/>
                 <TextField

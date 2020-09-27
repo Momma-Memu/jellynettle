@@ -48,7 +48,7 @@ const mainNavStyles = makeStyles((theme) => ({
     messages: {
         color: 'white',
         fontSize: 30,
-        marginLeft: 700,
+        marginLeft: 660,
         justifyContent: 'flex-end',
         '&:hover': {
             color: '#73E79E',
@@ -64,7 +64,17 @@ const mainNavStyles = makeStyles((theme) => ({
             color: '#73E79E',
             cursor: 'pointer',
         },
-    }
+    },
+    logout: {
+        color: 'white',
+        fontSize: 30,
+        marginLeft: 10,
+        justifyContent: 'flex-end',
+        '&:hover': {
+            color: '#73E79E',
+            cursor: 'pointer',
+        },
+    },
   }));
 
 export default mainNavStyles;
