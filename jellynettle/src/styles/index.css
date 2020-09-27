@@ -259,3 +259,12 @@ code {
   background-size: cover;
   height: 170px;
 }
+
+.mainNavBar{
+  border: 1px solid linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  background: linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  box-shadow: 0 3px 5px 2px rgba(200, 180, 255, .9);
+  padding-bottom: 10px;
+  padding-top: 10px;
+  max-height: 45px;
+}
