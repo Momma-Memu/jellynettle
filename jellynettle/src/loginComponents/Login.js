@@ -18,20 +18,22 @@ const Login = (props) => {
     const [currentUserId, setCurrentUserId] = useState(null)
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        const response = await fetch(`/api/session`, {
-          method: 'put',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({email, password}),
+    e.preventDefault();
+    const response = await fetch(`/api/session`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({email, password}),
         });
 
         if (response.ok) {
-          const { user } = await response.json();
-          props.updateUser(user.id);
-          // this.setState({ currentUserId: player.id });
-          setCurrentUserId(user.id)
+            const { user } = await response.json();
+            // props.updateUser(user.id); what is this??
+            setCurrentUserId(user.id)
         }
-      }
+    }
+
+    const updateEmail = e => setEmail(e.target.value);
+    const updatePassword = e => setPassword(e.target.value);
 
     return(
         <div className="main-background">
@@ -40,10 +42,14 @@ const Login = (props) => {
                 <Container className={containerClasses.root}>
                     <TextField className={fieldClasses.root}
                     required id="standard-required"
+                    value={email}
+                    onChange={updateEmail}
                     label="Email"/>
                     <TextField className={fieldClasses.root}
                     required id="standard-required"
                     label="Password"
+                    value={password}
+                    onChange={updatePassword}
                     type="password"
                     autoComplete="current-password"/>
                     <Button className={fieldClasses.Button} onclick={handleSubmit}>Login</Button>
