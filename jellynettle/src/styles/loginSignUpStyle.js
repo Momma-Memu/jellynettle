@@ -24,6 +24,7 @@ export const baseNavStyles = makeStyles((theme) => ({
         color: 'white',
         '&:hover': {
             color: '#73E79E',
+            // textDecoration: 'underline',
         },
         fontSize: 20,
     },

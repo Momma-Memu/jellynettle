@@ -27,6 +27,8 @@ code {
   height: 100%;
   width: 100%;
   background-color: rgba(80, 159, 195, 0.315);
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .bg1{
@@ -58,7 +60,20 @@ code {
 .infoHeader{
   /* margin-left: 10px;
   margin-right: 10px; */
+  padding-top: 20px;
   text-align: center;
+}
+.infoHeader2{
+  /* margin-left: 10px;
+  margin-right: 10px; */
+  padding-top: 60px;
+  text-align: center;
+}
+
+.infoHeader3{
+  padding-top: 20px;
+  text-align: center;
+  color: white;
 }
 
 .paragraphs{
@@ -83,5 +98,86 @@ code {
 }
 
 .safetyLinkBox{
+  margin-top: 100px;
   text-align: center;
+}
+
+.blockHidden{
+  display: none;
+}
+
+
+
+.divs-to-animate{
+  position: absolute;
+  margin-top: 60px;
+  margin-bottom: 100px;
+  border: 1px solid linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  background: linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  border-radius: 3px;
+  width: 300px;
+  height: 200px;
+  left: -300px;
+  transition-duration: 0.5s;
+  transition-property: left;
+  transition-timing-function: linear;
+}
+
+.animate{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-top: 60px;
+  margin-bottom: 100px;
+  border: 1px solid linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  background: linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  border-radius: 3px;
+  width: 300px;
+  height: 200px;
+  left: 100px;
+  transition-duration: 0.5s;
+  transition-property: left;
+  transition-timing-function: linear;
+}
+
+.divs-to-animate2{
+  position: absolute;
+  margin-top: 60px;
+  margin-bottom: 100px;
+  border: 1px solid linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  background: linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  border-radius: 3px;
+  width: 300px;
+  height: 200px;
+  bottom: -500px;
+  right: -300px;
+  transition-duration: 0.5s;
+  transition-property: right;
+  transition-timing-function: linear;
+}
+
+.animate2{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  margin-top: 60px;
+  margin-bottom: 100px;
+  border: 1px solid linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  background: linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  border-radius: 3px;
+  width: 300px;
+  height: 200px;
+  right: 100px;
+  transition-duration: 0.5s;
+  transition-property: right;
+  transition-timing-function: linear;
+}
+
+.animationContainer1{
+  display: flex;
+  flex-direction: row;
+}
+
+.buffer{
+  margin-top: 600px;
 }

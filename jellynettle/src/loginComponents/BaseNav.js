@@ -10,7 +10,7 @@ const BaseNav = () => {
     const container = baseNavStyles();
     return (
         <header className={container.root}>
-            <img src={logo} className={container.logo}/>
+            <img src={logo} className={container.logo} alt='logo'/>
             <div className={container.link}>
                 <NavLink exact to='/safety' className={container.linkText}>
                 Safety</NavLink>
