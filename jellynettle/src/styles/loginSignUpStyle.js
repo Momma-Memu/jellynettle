@@ -32,6 +32,12 @@ export const baseNavStyles = makeStyles((theme) => ({
         height: 50,
         width: 50,
         backgroundImage: './LogoMakr_9328RJ.png'
+    },
+    logo2: {
+        height: 35,
+        width: 35,
+        marginRight: 10,
+        // backgroundImage: './LogoMakr_9328RJ.png'
     }
 }));
 

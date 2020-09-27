@@ -14,7 +14,7 @@ const Safety = () => {
             Our AI does not pick up every instance of hate speech, we rely on you when that happens.
             By reporting anything that you believe violates our community standards, we can pick up the slack
             ourselves!</p>
-            <h3 className='infoHeader'>Privacy:</h3>
+            <h3 className='infoHeader'>Privacy</h3>
             <p className='paragraphs'>We encrypt all of your messages, your email address, password
              and promise to do our best to protect that sensitive information.
              It's important you also take the time to the time to carefully choose your password.

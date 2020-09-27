@@ -6,6 +6,8 @@ import SignUp from './loginComponents/SignUp';
 import { Route } from 'react-router-dom';
 import About from './navComponents/About';
 import Safety from './navComponents/Safety';
+import Support from './navComponents/Support'
+import Profile from './profileComponents/ProfileBase';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
         <Route path='/signup' component={SignUp}/>
         <Route path='/about' component={About}/>
         <Route path='/safety' component={Safety}/>
+        <Route path='/support' component={Support} />
+        <Route path='/profile' component={Profile}/>
       </BrowserRouter>
     </div>
   );
