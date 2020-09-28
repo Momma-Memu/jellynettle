@@ -46,6 +46,8 @@ code {
   width: 220px
 }
 
+/* Moving the images out of screen on smaller laptops */
+
 @media only screen and (max-width: 797px) {
   .bg1{
     display: none;
@@ -140,7 +142,7 @@ code {
 }
 
 .bannerContainer{
-  background-image: url(./jellyBanner.jpg);
+  background-image: url(./images/jellyBanner.jpg);
   background-size: cover;
   height: 170px;
 }
@@ -154,9 +156,9 @@ code {
   max-height: 45px;
 }
 
-/* .navOverflow{
-  width: 1000px;
-} */
+.continueBtn{
+  text-decoration: none;
+}
 
 @media only screen and (max-width: 1000px){
   .messages2{

@@ -8,6 +8,7 @@ import Safety from './navComponents/Safety';
 import Support from './navComponents/Support'
 import Profile from './profileComponents/ProfileBase';
 import Settings from './loggedInNavComponents/Settings';
+import Home from './homeComponents/Home';
 import { PrivateRoute } from './routesUtil';
 
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <PrivateRoute exact path='/' component={Home} />
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>
         <Route path='/about' component={About}/>

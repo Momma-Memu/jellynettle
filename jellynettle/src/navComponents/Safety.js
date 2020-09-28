@@ -17,7 +17,7 @@ const Safety = () => {
             <h3 className='infoHeader'>Privacy</h3>
             <p className='paragraphs'>We encrypt all of your messages, your email address, password
              and promise to do our best to protect that sensitive information.
-             It's important you also take the time to the time to carefully choose your password.
+             It's important you also take the time to carefully choose your password.
              Not sure what a good password is? Checkout the link below to learn more about
              strong passwords.</p>
             <div className='safetyLinkBox'>

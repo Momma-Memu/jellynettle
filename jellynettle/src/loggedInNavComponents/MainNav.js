@@ -9,6 +9,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import SettingsAccess from './SettingsAccess';
 import { NavLink } from 'react-router-dom'
 
 
@@ -35,9 +36,9 @@ const MainNav = () => {
                 </NavLink>
             </Tooltip>
             <Tooltip title='Settings'>
-                <NavLink exact to='/settings'>
-                    <SettingsIcon className={navClass.settings} />
-                </NavLink>
+                <div>
+                    <SettingsAccess />
+                </div>
             </Tooltip>
             <Tooltip title='Logout'>
                 <NavLink exact to='/login'>
