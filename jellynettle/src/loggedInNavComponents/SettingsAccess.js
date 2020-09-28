@@ -10,7 +10,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import TextField from '@material-ui/core/TextField';
 import Slide from '@material-ui/core/Slide';
 import { NavLink } from 'react-router-dom';
-import loginFieldStyles, { loginContainerStyles } from '../styles/loginSignUpStyle';
+import loginFieldStyles from '../styles/loginSignUpStyle';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -28,7 +28,6 @@ export default function AlertDialogSlide() {
   };
   const navClass = mainNavStyles();
   const fieldClasses = loginFieldStyles();
-  const containerClasses = loginContainerStyles();
   const [password, setPassword] = useState('');
 
   const updatePassword = e => setPassword(e.target.value);
