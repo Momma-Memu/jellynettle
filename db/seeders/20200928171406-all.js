@@ -20,7 +20,7 @@ module.exports = {
         {
           fullName: 'Brandi Jernigan',
           userName: 'Lee',
-          email: 'example@email.com',
+          email: 'brandi.jernigan@gmail.com',
           password: bcrypt.hashSync('password'),
           gender: 'Female',
           dob: new Date('12-23-1995'),
@@ -122,6 +122,8 @@ module.exports = {
       ],
       { returning: true }
     );
+
+
 
   },
 

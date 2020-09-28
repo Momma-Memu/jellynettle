@@ -30,7 +30,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     User.belongsToMany(models.User,
-      {as: 'friends', through: 'friend', foreignKey: 'userId', otherKey: 'friendId'})
+      {as: 'friends', through: 'friend', foreignKey: 'userId', otherKey: 'friendId'});
+    User.hasMany(models.Post, { foreignKey: 'userId' });
+    User.hasMany(models.Comment, { foreignKey: 'userId' });
+    User.hasMany(models.Reply, { foreignKey: 'userId' });
+    User.hasMany(models.Group, { foreignKey: 'ownerId' });
+    User.hasMany(models.Member, { foreignKey: 'userId' });
   };
   return User;
 };
