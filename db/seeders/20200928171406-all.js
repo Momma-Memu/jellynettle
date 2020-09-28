@@ -81,21 +81,44 @@ module.exports = {
       'Comments',
       [
         {
-          userId: users[1],
-          postId: posts[0],
+          userId: users[1].id,
+          postId: posts[0].id,
           message: 'Nerd.',
           likeCount: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          userId: users[0],
-          postId: posts[1],
+          userId: users[0].id,
+          postId: posts[1].id,
           message: 'This is true',
           likeCount: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+      ],
+      { returning: true }
+    );
+
+    const replies = await queryInterface.bulkInsert(
+      'Replies',
+      [
+        {
+          userId: users[0].id,
+          commentId: comments[0].id,
+          message: 'WOW okay....WOW, I mean...Wow.',
+          likeCount: 1,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: users[1].id,
+          commentId: comments[1].id,
+          message: 'Obviously.',
+          likeCount: 1,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }
       ],
       { returning: true }
     );

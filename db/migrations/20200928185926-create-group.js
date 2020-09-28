@@ -1,30 +1,25 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Friends', {
+    return queryInterface.createTable('Groups', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      friendName: {
-        type: Sequelize.STRING,
+      name: {
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
-      username: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      userId: {
+      ownerId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'Users' }
       },
-      friendId: {
+      userCount: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'Users' }
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +32,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Friends');
+    return queryInterface.dropTable('Groups');
   }
 };
