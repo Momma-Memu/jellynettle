@@ -1,7 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define('Post', {
+  const Reply = sequelize.define('Reply', {
     userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    commentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -14,8 +18,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   }, {});
-  Post.associate = function(models) {
-    Post.belongsTo(models.User, { foreignKey: 'userId' });
+  Reply.associate = function(models) {
+    Reply.belongsTo(models.User, { foreignKey: 'userId' });
+    Reply.belongsTo(models.Comment, { foreignKey: 'commentId' });
   };
-  return Post;
+  return Reply;
 };

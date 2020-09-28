@@ -80,7 +80,22 @@ module.exports = {
     const comments = await queryInterface.bulkInsert(
       'Comments',
       [
-
+        {
+          userId: users[1],
+          postId: posts[0],
+          message: 'Nerd.',
+          likeCount: 1,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: users[0],
+          postId: posts[1],
+          message: 'This is true',
+          likeCount: 1,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       { returning: true }
     );
