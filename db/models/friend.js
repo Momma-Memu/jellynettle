@@ -2,12 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
   const Friend = sequelize.define('Friend', {
     friendName: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     userName: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false,
+      unique: true,
     },
     userId:{
       type: DataTypes.INTEGER,

@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     userName:{
-     type: DataTypes.STRING(50),
+     type: DataTypes.STRING(100),
      allowNull: false,
      unique: true,
     },
@@ -16,11 +16,11 @@ module.exports = (sequelize, DataTypes) => {
      unique: true,
     },
     password: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(255),
       allowNull: false,
     },
     gender: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     dob: {
@@ -36,6 +36,8 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Reply, { foreignKey: 'userId' });
     User.hasMany(models.Group, { foreignKey: 'ownerId' });
     User.hasMany(models.Member, { foreignKey: 'userId' });
+    User.hasMany(models.Message, { foreignKey: 'fromId' });
+    User.hasMany(models.Message, { foreignKey: 'toId' });
   };
   return User;
 };

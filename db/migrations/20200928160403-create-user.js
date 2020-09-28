@@ -14,7 +14,7 @@ module.exports = {
         unique: true,
       },
       userName: {
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(100),
         allowNull: false,
         unique: true,
       },
@@ -24,11 +24,11 @@ module.exports = {
         unique: true,
       },
       password: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(255),
         allowNull: false,
       },
       gender: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
       dob: {

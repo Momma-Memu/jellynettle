@@ -1,5 +1,5 @@
 'use strict';
-const faker = require('faker');
+// const faker = require('faker');
 const bcrypt = require('bcryptjs');
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
         },
         {
           fullName: 'Brandi Jernigan',
-          userName: 'Lee',
+          userName: 'Leeloo',
           email: 'brandi.jernigan@gmail.com',
           password: bcrypt.hashSync('password'),
           gender: 'Female',
@@ -41,11 +41,32 @@ module.exports = {
       { returning: true }
     );
 
+    const message = await queryInterface.bulkInsert(
+      'Messages',
+      [
+        {
+          fromId: users[0].id,
+          toId: users[1].id,
+          message: 'Hey girl',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          fromId: users[1].id,
+          toId: users[0].id,
+          message: 'Hey girl hey',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        }
+      ],
+      { returning: true }
+    );
+
     const friends = await queryInterface.bulkInsert(
       'Friends',
       [
         {
-          usernName: users[0].userName,
+          userName: users[0].userName,
           friendName: users[1].userName,
           userId: users[0].id,
           friendId: users[1].id,
@@ -122,18 +143,49 @@ module.exports = {
       ],
       { returning: true }
     );
+    const groups = await queryInterface.bulkInsert(
+      'Groups',
+      [
+        {
+          name: 'The Cool Group',
+          ownerId: users[0].id,
+          userCount: 2,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      { returning: true }
+    );
 
-
+    const members = await queryInterface.bulkInsert(
+      'Members',
+      [
+        {
+          groupId: groups[0].id,
+          userId: users[0].id,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          groupId: groups[0].id,
+          userId: users[1].id,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      { returning: true }
+    );
 
   },
 
-  down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete('Members', null, {});
+    await queryInterface.bulkDelete('Groups', null, {});
+    await queryInterface.bulkDelete('Replies', null, {});
+    await queryInterface.bulkDelete('Comments', null, {});
+    await queryInterface.bulkDelete('Posts', null, {});
+    await queryInterface.bulkDelete('Friends', null, {});
+    await queryInterface.bulkDelete('Messages', null, {});
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };
