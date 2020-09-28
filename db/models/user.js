@@ -1,35 +1,36 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    fullName: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
+    username:{
+     type: DataTypes.STRING(50),
+     allowNull: false,
+     unique: true,
+    },
     email: {
-      allowNull: false,
-      type: DataTypes.STRING,
-      validates: {
-        isEmail: true,
-        len: [3, 255],
-      }
+     type: DataTypes.STRING(100),
+     allowNull: false,
+     unique: true,
     },
-    username: {
+    password: {
+      type: DataTypes.STRING(20),
       allowNull: false,
-      type: DataTypes.STRING,
-      validates: {
-        len: [1, 255],
-      },
     },
-    hashedPassword: {
+    gender: {
+      type: DataTypes.STRING(20),
       allowNull: false,
-      type: DataTypes.STRING.BINARY,
-      validates: {
-        len: [60, 60],
-      },
     },
-    tokenId: {
-      type: DataTypes.STRING
-    }
+    dob: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
   }, {});
-
   User.associate = function(models) {
+    User.belongsToMany(models.User,
+      {as: 'friends', through: 'friend', foreignKey: 'userId', otherKey: 'friendId'})
   };
-
   return User;
 };
