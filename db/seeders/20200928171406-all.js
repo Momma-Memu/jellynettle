@@ -27,18 +27,64 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
-      ]
-    )
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+        {
+          fullName: 'Demo',
+          userName: 'Demo',
+          email: 'demo@email.com',
+          password: bcrypt.hashSync('password'),
+          gender: 'Non-binary',
+          dob: new Date('02-23-1990'),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      { returning: true }
+    );
 
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    const friends = await queryInterface.bulkInsert(
+      'Friends',
+      [
+        {
+          usernName: users[0].userName,
+          friendName: users[1].userName,
+          userId: users[0].id,
+          friendId: users[1].id,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      { returning: true }
+    );
+
+    const posts = await queryInterface.bulkInsert(
+      'Posts',
+      [
+        {
+          userId: users[0].id,
+          message: 'If a developer makes an app, and nobody uses it, does it actually exist?',
+          likeCount: 0,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: users[1].id,
+          message: 'Puppies are cute and we do not deserve them.',
+          likeCount: 100,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ],
+      { returning: true }
+    );
+
+    const comments = await queryInterface.bulkInsert(
+      'Comments',
+      [
+
+      ],
+      { returning: true }
+    );
+
   },
 
   down: (queryInterface, Sequelize) => {
