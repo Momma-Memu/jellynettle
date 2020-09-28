@@ -4,7 +4,7 @@ import React from 'react';
 // import Button from '@material-ui/core/Button'
 import { baseNavStyles } from '../styles/loginSignUpStyle';
 import { NavLink } from 'react-router-dom';
-import logo from '../styles/LogoMakr_9328RJ.png'
+import logo from '../styles/images/LogoMakr_9328RJ.png'
 
 const BaseNav = () => {
     const container = baseNavStyles();

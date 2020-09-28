@@ -2,6 +2,7 @@ import React from 'react';
 import BaseNav from '../loginComponents/BaseNav';
 import { NavLink } from 'react-router-dom'
 
+
 class About extends React.Component {
     constructor(){
         super()

@@ -23,7 +23,8 @@ const mainNavStyles = makeStyles((theme) => ({
         textAlign: 'center',
         color: 'white',
         marginBottom: 20,
-        marginLeft: 10,
+        // marginLeft: 10,
+        flexGrow: 1,
     },
     account: {
         color: 'white',
@@ -46,9 +47,10 @@ const mainNavStyles = makeStyles((theme) => ({
         },
     },
     messages: {
+        // flexGrow: 1,
         color: 'white',
         fontSize: 30,
-        marginLeft: 660,
+        // marginLeft: 20,
         justifyContent: 'flex-end',
         '&:hover': {
             color: '#73E79E',
@@ -69,6 +71,7 @@ const mainNavStyles = makeStyles((theme) => ({
         color: 'white',
         fontSize: 30,
         marginLeft: 10,
+        marginRight: 30,
         justifyContent: 'flex-end',
         '&:hover': {
             color: '#73E79E',

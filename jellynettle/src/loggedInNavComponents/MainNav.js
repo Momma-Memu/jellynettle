@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../styles/LogoMakr_9328RJ.png'
+import logo from '../styles/images/LogoMakr_9328RJ.png'
 import { baseNavStyles } from '../styles/loginSignUpStyle';
 import mainNavStyles from '../styles/mainNavStyles';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -24,7 +24,7 @@ const MainNav = () => {
             <img src={logo} className={logoClass.logo2} alt='logo' />
             <h3 className={navClass.title}>JellyNettle</h3>
             <Tooltip title='Messages'>
-                <MailOutlineIcon className={navClass.messages} />
+                <MailOutlineIcon className={navClass.messages}  />
             </Tooltip>
             <Tooltip title='Notifications'>
                 <NotificationsNoneIcon className={navClass.notifications} />

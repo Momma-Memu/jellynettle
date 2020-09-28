@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button'
 import loginFieldStyles, { signUpContainerStyles } from '../styles/loginSignUpStyle';
 import { NavLink } from 'react-router-dom';
 import BaseNav from './BaseNav';
-import bg1 from '../styles/background1.png'
-import bg2 from '../styles/background2.png'
+import bg1 from '../styles/images/background1.png'
+import bg2 from '../styles/images/background2.png'
 
 
 const SignUp = () => {
