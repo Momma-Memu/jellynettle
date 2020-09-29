@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Login from './loginComponents/Login';
 import SignUp from './loginComponents/SignUp';
 import { Route } from 'react-router-dom';
@@ -12,12 +13,12 @@ import Home from './homeComponents/Home';
 import { PrivateRoute } from './routesUtil';
 
 
-function App() {
+function App(props) {
 
   return (
     <div>
       <BrowserRouter>
-        <PrivateRoute exact path='/' component={Home} />
+        <PrivateRoute isLoggedIn={props.token} exact path='/' component={Home} />
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={SignUp}/>
         <Route path='/about' component={About}/>
@@ -30,4 +31,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    token: state.user
+  }
+}
+
+export default connect(mapStateToProps)(App)

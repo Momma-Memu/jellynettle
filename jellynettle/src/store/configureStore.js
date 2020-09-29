@@ -8,11 +8,16 @@ const reducer = combineReducers({
     authentication,
 });
 
+const initialState = {
+
+}
+
 const configureStore = () => {
     return createStore(
         reducer,
         composeEnhancers(applyMiddleware(thunk)),
     );
 };
+
 
 export default configureStore;
