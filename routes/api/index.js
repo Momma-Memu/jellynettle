@@ -8,6 +8,7 @@ for (let route of routes) {
 
 // router.use('/users', require('./users'))
 router.use('/session', require('./session'))
+router.use('/posts', require('./posts'))
 
 
 module.exports = router;

@@ -4,7 +4,7 @@ import BaseNav from '../loginComponents/BaseNav';
 const Safety = () => {
 
     return (
-        <div>
+        <div className="main-background">
             <BaseNav />
             <h1 className='infoHeader'>We take safety seriously</h1>
             <p className='paragraphs'>JellyNettle is designed around privacy and open-mindedness.</p>

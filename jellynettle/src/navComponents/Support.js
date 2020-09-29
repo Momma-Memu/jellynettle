@@ -3,7 +3,7 @@ import BaseNav from '../loginComponents/BaseNav'
 const Support = () => {
 
     return (
-        <div>
+        <div className="main-background">
             <BaseNav />
             <h1 className='infoHeader'>Want to support the cause?</h1>
             <p className='paragraphs'>You can support us through paypal!</p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import Login from './loginComponents/Login';
 import SignUp from './loginComponents/SignUp';
 import { Route } from 'react-router-dom';
@@ -11,7 +11,7 @@ import Profile from './profileComponents/ProfileBase';
 import Settings from './loggedInNavComponents/Settings';
 import Home from './homeComponents/Home';
 import { PrivateRoute } from './routesUtil';
-import {useSelector} from 'react-redux';
+// import {useSelector} from 'react-redux';
 
 
 function App(props) {

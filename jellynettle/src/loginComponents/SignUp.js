@@ -9,6 +9,7 @@ import BaseNav from './BaseNav';
 import bg1 from '../styles/images/background1.png'
 import bg2 from '../styles/images/background2.png'
 import { signUpUser } from '../store/authentication';
+import CommunityStandards from './CommunityStandards';
 
 
 const SignUp = () => {
@@ -48,62 +49,65 @@ const SignUp = () => {
     }
 
     return(
-        <div className={containerClasses.outerDiv}>
-            <BaseNav />
-            <Container className={containerClasses.root}>
-                <p>{message}</p>
-                <TextField className={fieldClasses.root}
-                required id="standard-required"
-                value={fullName}
-                onChange={updateFullName}
-                label="Full Name"/>
-                <TextField className={fieldClasses.root}
-                required id="standard-required"
-                value={email}
-                onChange={updateEmail}
-                label="Email" type="Email"/>
-                <TextField className={fieldClasses.root}
-                required id="standard-required"
-                label="Password"
-                value={password}
-                onChange={updatePassword}
-                type="password"
-                autoComplete="current-password"/>
-                <TextField className={fieldClasses.root}
-                required id="standard-required"
-                label="Confirm Password"
-                value={confirmPassword}
-                onChange={updateConfirmPassword}
-                type="password"
-                autoComplete="current-password"/>
-                <TextField className={fieldClasses.root}
-                required id="standard-required"
-                label="Username"
-                value={userName}
-                onChange={updateUserName}
-                type="Standard"/>
-                <TextField
-                required id="date"
-                label="Birthday"
-                value={dob}
-                onChange={updateDob}
-                type="date"
-                className={fieldClasses.root}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                />
-                <TextField className={fieldClasses.root}
-                label="Gender"
-                value={gender}
-                onChange={updateGender}
-                />
-                <Button className={containerClasses.Button} onClick={handleSubmit}>Sign Up</Button>
-                <NavLink exact to='/login' className={containerClasses.signUp}>
-                Already have an account? Click here!</NavLink>
-            </Container>
-            <img src={bg1} className='bg1' alt='people'/>
-            <img src={bg2} className='bg2' alt='people'/>
+        <div className="main-background">
+            <div className={containerClasses.outerDiv}>
+                <BaseNav />
+                <Container className={containerClasses.root}>
+                    <p>{message}</p>
+                    <TextField className={fieldClasses.root}
+                    required id="standard-required"
+                    value={fullName}
+                    onChange={updateFullName}
+                    label="Full Name"/>
+                    <TextField className={fieldClasses.root}
+                    required id="standard-required"
+                    value={email}
+                    onChange={updateEmail}
+                    label="Email" type="Email"/>
+                    <TextField className={fieldClasses.root}
+                    required id="standard-required"
+                    label="Password"
+                    value={password}
+                    onChange={updatePassword}
+                    type="password"
+                    autoComplete="current-password"/>
+                    <TextField className={fieldClasses.root}
+                    required id="standard-required"
+                    label="Confirm Password"
+                    value={confirmPassword}
+                    onChange={updateConfirmPassword}
+                    type="password"
+                    autoComplete="current-password"/>
+                    <TextField className={fieldClasses.root}
+                    required id="standard-required"
+                    label="Username"
+                    value={userName}
+                    onChange={updateUserName}
+                    type="Standard"/>
+                    <TextField
+                    required id="date"
+                    label="Birthday"
+                    value={dob}
+                    onChange={updateDob}
+                    type="date"
+                    className={fieldClasses.root}
+                    InputLabelProps={{
+                    shrink: true,
+                    }}
+                    />
+                    <TextField className={fieldClasses.root}
+                    label="Gender"
+                    value={gender}
+                    onChange={updateGender}
+                    />
+                    <Button className={containerClasses.Button} onClick={handleSubmit}>Sign Up</Button>
+                    <NavLink exact to='/login' className={containerClasses.signUp}>
+                    Already have an account? Click here!</NavLink>
+                    <CommunityStandards />
+                </Container>
+                <img src={bg1} className='bg1' alt='people'/>
+                <img src={bg2} className='bg2' alt='people'/>
+            </div>
         </div>
     )
 }
