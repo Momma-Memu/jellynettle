@@ -23,6 +23,7 @@ const Login = (props) => {
     const handleSubmit = async (e) => {
         dispatch(login(email, password))
     }
+
     const { message } = useSelector(state => state.authentication)
 
     const fieldClasses = loginFieldStyles();

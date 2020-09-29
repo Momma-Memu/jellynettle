@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 const SET_USER = 'SET_USER';
 const REMOVE_USER = 'REMOVE_USER';
 const FAILED_LOGIN = 'FAILED_LOGIN';
+const ADD_USER = 'ADD_USER';
 
 
 export const setUser = (user) => {
@@ -12,7 +13,6 @@ export const setUser = (user) => {
 }
 
 export const removeUser = () => {
-    debugger
     return {
         type: REMOVE_USER,
     }
@@ -22,6 +22,13 @@ export const failedLogin = (headers) => {
     return {
         type: FAILED_LOGIN,
         headers,
+    }
+}
+
+export const addUser = (details) => {
+    return {
+        type: ADD_USER,
+        details
     }
 }
 
@@ -67,15 +74,36 @@ export const logout = () => async dispatch => {
     dispatch(removeUser());
 }
 
+export const signUpUser = (data) => async dispatch => {
+    dispatch(addUser(''))
+    const response = await fetch(`/api/session/make`, {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    });
+    const res = await response.json();
+    console.log(res)
+    if(res.success === false){
+        dispatch(failedLogin(res))
+        return response;
+    }
+
+    if (response.ok) {
+        // const { user } = await response.json();
+        dispatch(addUser(res));
+    }
+}
+
 export default function reducer(state=loadUser(), action) {
     switch(action.type){
         case SET_USER:
             return action.user;
         case REMOVE_USER:
-            debugger
             return {};
         case FAILED_LOGIN:
             return action.headers
+        case ADD_USER:
+            return action.details
         default:
             return state;
     }

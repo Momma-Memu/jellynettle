@@ -84,7 +84,7 @@ export const signUpContainerStyles = makeStyles((theme) => ({
         borderRadius: 3,
         boxShadow: '0 3px 5px 2px rgba(200, 180, 255, .5)',
         color: 'white',
-        height: 450,
+        height: 500,
         width: 400,
         // padding: '0 30px',
         flexDirection: 'column',
