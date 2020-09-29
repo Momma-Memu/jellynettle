@@ -8,6 +8,9 @@ class About extends React.Component {
         super()
         this.myRef = React.createRef();
         this.div1Ref = React.createRef();
+        this.div2Ref = React.createRef();
+        this.div3Ref = React.createRef();
+        this.div4Ref = React.createRef();
         this.state = { scrollTop: 0 }
     }
     onScroll = () => {
@@ -16,69 +19,39 @@ class About extends React.Component {
             scrollTop: scrollTop
         })
         if(this.state.scrollTop >= 100){
-            // const divs = document.querySelectorAll('.divs-to-animate')
-            const div = this.div1Ref.current
-            // console.log(div)
-            // if(div.classList.contains('animate'))
+            const div = this.div1Ref.current;
             div.classList.add('animate');
             div.classList.remove('divs-to-animate')
-            // divs.forEach(element => {
-            //     if(element.classList.contains('animate')) return;
-            //     element.classList.add('animate')
-                // element.classList.remove('divs-to-animate')
-            // });
-        } else if (this.state.scrollTop <= 40){
-            const divs = document.querySelectorAll('.animate')
-            divs.forEach(element => {
-                element.classList.remove('animate')
-                element.classList.add('divs-to-animate')
-            });
+        } else if (this.state.scrollTop <= 50){
+            const div = this.div1Ref.current;
+            div.classList.remove('animate');
+            div.classList.add('divs-to-animate');
         }
 
         if(this.state.scrollTop >= 320){
-            const divs = document.querySelectorAll('.divs-to-animate2')
-            // console.log(divs)
-            divs.forEach(element => {
-                if(element.classList.contains('animate2')) return;
-                element.classList.add('animate2')
-                // element.classList.remove('divs-to-animate')
-            });
+            const div2 = this.div2Ref.current;
+            div2.classList.add('animate2');
+            div2.classList.remove('divs-to-animate2')
         } else if (this.state.scrollTop <= 280){
-            const divs = document.querySelectorAll('.animate2')
-            divs.forEach(element => {
-                element.classList.remove('animate2')
-                element.classList.add('divs-to-animate2')
-            });
+            const div2 = this.div2Ref.current;
+            div2.classList.remove('animate2');
+            div2.classList.add('divs-to-animate2');
         }
 
         if(this.state.scrollTop >= 550){
-            const divs = document.querySelectorAll('.divs-to-animate3')
-            divs.forEach(element => {
-                if(element.classList.contains('animate3')) return;
-                element.classList.add('animate3')
-                // element.classList.remove('divs-to-animate')
-            });
+            const div3 = this.div3Ref.current;
+            div3.classList.add('animate3');
         } else if (this.state.scrollTop <= 450){
-            const divs = document.querySelectorAll('.animate3')
-            divs.forEach(element => {
-                element.classList.remove('animate3')
-                element.classList.add('divs-to-animate3')
-            });
+            const div3 = this.div3Ref.current;
+            div3.classList.remove('animate3');
         }
 
         if(this.state.scrollTop >= 850){
-            const divs = document.querySelectorAll('.divs-to-animate4')
-            divs.forEach(element => {
-                if(element.classList.contains('animate4')) return;
-                element.classList.add('animate4')
-                // element.classList.remove('divs-to-animate')
-            });
+            const div4 = this.div4Ref.current;
+            div4.classList.add('animate4');
         } else if (this.state.scrollTop <= 750){
-            const divs = document.querySelectorAll('.animate4')
-            divs.forEach(element => {
-                element.classList.remove('animate4')
-                element.classList.add('divs-to-animate4')
-            });
+            const div4 = this.div4Ref.current;
+            div4.classList.remove('animate4');
         }
     }
     render(){
@@ -108,17 +81,17 @@ class About extends React.Component {
                     <p className='paragraphs2'>With JellyNettle, you can build teams
                     with people who share an interest in the games you play!</p>
                 </div>
-                <div className='divs-to-animate2'>
+                <div className='divs-to-animate2' ref={this.div2Ref}>
                     <h2 className='infoHeader3'>Meet People</h2>
                     <p className='paragraphs2'>Join a community of gamers from
                     the casual to the serious competitive player.</p>
                 </div>
-                <div className='divs-to-animate3'>
+                <div className='divs-to-animate3' ref={this.div3Ref}>
                     <h2 className='infoHeader3'>Share Tips</h2>
                     <p className='paragraphs2'>Discuss your favorite games, share
                      tips and tricks. </p>
                 </div>
-                <div className='divs-to-animate4'>
+                <div className='divs-to-animate4' ref={this.div4Ref}>
                     <h2 className='infoHeader3'>Ready to sign up?</h2>
                     <div className='safetyLinkBox'>
                         <NavLink exact to='signup' className='safetyLink'>Sign up here.</NavLink>
