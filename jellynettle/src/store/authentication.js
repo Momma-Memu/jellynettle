@@ -3,11 +3,6 @@ const SET_USER = 'SET_USER';
 const REMOVE_USER = 'REMOVE_USER';
 const FAILED_LOGIN = 'FAILED_LOGIN';
 
-// const initialState = {
-//     email: '',
-//     password: '',
-//     currentUserId: '',
-// };
 
 export const setUser = (user) => {
     return {
@@ -17,6 +12,7 @@ export const setUser = (user) => {
 }
 
 export const removeUser = () => {
+    debugger
     return {
         type: REMOVE_USER,
     }
@@ -39,14 +35,12 @@ export const login = (email, password) => {
         });
         const data = await response.json();
         if(data.status === 403){
-            console.log('okay')
             dispatch(failedLogin(data))
             return response;
         }
 
         if (response.ok) {
             // const { user } = await response.json();
-            console.log(data)
             dispatch(setUser(data));
         }
     }
@@ -66,24 +60,19 @@ function loadUser() {
             Cookies.remove("token");
         }
     }
-    return { authentication: { message: '' }};
+    return { authentication: { message: '' }, token: authToken };
 }
 
 export const logout = () => async dispatch => {
-    const res = await fetch('/api/session', {
-        method: "delete"
-    });
-    if (res.ok) {
-        dispatch(removeUser());
-    }
+    dispatch(removeUser());
 }
 
 export default function reducer(state=loadUser(), action) {
-    // console.log(state)
     switch(action.type){
         case SET_USER:
             return action.user;
         case REMOVE_USER:
+            debugger
             return {};
         case FAILED_LOGIN:
             return action.headers

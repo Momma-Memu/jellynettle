@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom'
 class About extends React.Component {
     constructor(){
         super()
-        this.myRef = React.createRef()
+        this.myRef = React.createRef();
+        this.div1Ref = React.createRef();
         this.state = { scrollTop: 0 }
     }
     onScroll = () => {
@@ -15,12 +16,17 @@ class About extends React.Component {
             scrollTop: scrollTop
         })
         if(this.state.scrollTop >= 100){
-            const divs = document.querySelectorAll('.divs-to-animate')
-            divs.forEach(element => {
-                if(element.classList.contains('animate')) return;
-                element.classList.add('animate')
+            // const divs = document.querySelectorAll('.divs-to-animate')
+            const div = this.div1Ref.current
+            // console.log(div)
+            // if(div.classList.contains('animate'))
+            div.classList.add('animate');
+            div.classList.remove('divs-to-animate')
+            // divs.forEach(element => {
+            //     if(element.classList.contains('animate')) return;
+            //     element.classList.add('animate')
                 // element.classList.remove('divs-to-animate')
-            });
+            // });
         } else if (this.state.scrollTop <= 40){
             const divs = document.querySelectorAll('.animate')
             divs.forEach(element => {
@@ -31,6 +37,7 @@ class About extends React.Component {
 
         if(this.state.scrollTop >= 320){
             const divs = document.querySelectorAll('.divs-to-animate2')
+            // console.log(divs)
             divs.forEach(element => {
                 if(element.classList.contains('animate2')) return;
                 element.classList.add('animate2')
@@ -96,7 +103,7 @@ class About extends React.Component {
                     <NavLink exact to='/safety' className='safetyLink'>Safety</NavLink>
                 </div>
                 <h2 className='infoHeader2'>So, what all can I do here?</h2>
-                <div className='divs-to-animate'>
+                <div className='divs-to-animate' ref={this.div1Ref}>
                     <h2 className='infoHeader3'>Build Teams</h2>
                     <p className='paragraphs2'>With JellyNettle, you can build teams
                     with people who share an interest in the games you play!</p>

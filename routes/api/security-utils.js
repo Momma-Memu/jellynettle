@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken');
 const uuid = require('uuid').v4;
 
-const { jwtConfig: { secret, expires } } = require('../../config');
-const UserRepository = require('../../db/user-repository');
+const { jwtConfig: { secret, expiresIn } } = require('../../config');
+const user = require('../../db/models');
 
 function generateToken(user) {
   const data = user.toSafeObject();
@@ -10,7 +10,7 @@ function generateToken(user) {
 
   return {
     jti: jwtid,
-    token: jwt.sign({ data }, secret, { expires: Number.parseInt(expires), jwtid })
+    token: jwt.sign({ data }, secret, { expiresIn: Number.parseInt(expiresIn), jwtid })
   };
 }
 

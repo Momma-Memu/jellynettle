@@ -10,12 +10,20 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import SettingsAccess from './SettingsAccess';
 import { NavLink } from 'react-router-dom'
-
+import Cookies from "js-cookie";
+import { logout } from '../store/authentication';
+import { useDispatch } from 'react-redux';
 
 
 const MainNav = () => {
     const logoClass = baseNavStyles();
     const navClass = mainNavStyles();
+    const dispatch = useDispatch();
+    const handleLogout = () => {
+        Cookies.remove("token");
+        dispatch(logout())
+    }
+
     return (
         <div className={`${navClass.bar} mainNavBar`}>
             <Tooltip title ='My Groups'>
@@ -41,7 +49,7 @@ const MainNav = () => {
             </Tooltip>
             <Tooltip title='Logout'>
                 <NavLink exact to='/login'>
-                    <MeetingRoomIcon className={navClass.logout}/>
+                    <MeetingRoomIcon onClick={handleLogout} className={navClass.logout}/>
                 </NavLink>
             </Tooltip>
         </div>

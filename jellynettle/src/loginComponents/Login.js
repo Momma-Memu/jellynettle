@@ -13,29 +13,23 @@ import { login } from '../store/authentication';
 
 
 const Login = (props) => {
-    // console.log(props)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [currentUserId, setCurrentUserId] = useState(null);
-    const [headers, setHeaders] = useState('')
-    // const { currentUserId } = useSelector(state => state.currentUserId)
+
+    const { id } = useSelector(state => state.authentication)
 
     const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
         dispatch(login(email, password))
-        // setCurrentUserId(props.user.id)
-        // setHeaders()
-        // console.log(message)
-
     }
     const { message } = useSelector(state => state.authentication)
 
     const fieldClasses = loginFieldStyles();
     const containerClasses = loginContainerStyles();
 
-    if (currentUserId) {
-        return <Redirect to="/" />;
+    if (id) {
+        return <Redirect to="/"/>;
     }
 
     const updateEmail = e => setEmail(e.target.value);

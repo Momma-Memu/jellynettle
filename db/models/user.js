@@ -39,5 +39,14 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Message, { foreignKey: 'fromId' });
     User.hasMany(models.Message, { foreignKey: 'toId' });
   };
+  User.prototype.toSafeObject = function() {
+    const {
+      id,
+      userName
+    } = this;
+
+    return { id, userName };
+  };
+
   return User;
 };

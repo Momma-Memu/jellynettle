@@ -7,8 +7,8 @@ module.exports = {
     database: process.env.DB_DATABASE,
     host: process.env.DB_HOST,
   },
-  jwtconfig: {
+  jwtConfig: {
     secret: process.env.SECRET_KEY,
-    expires: process.env.JWT_EXPIRES_IN,
+    expiresIn: process.env.JWT_EXPIRES_IN,
   }
 };

@@ -2,6 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcryptjs');
 const { User } = require('../../db/models');
+const { generateToken } = require('./security-utils');
 // const jwt = require('jsonwebtoken');
 // const uuid = require('uuid').v4;
 
@@ -17,17 +18,20 @@ router.post('/', asyncHandler(async function (req, res, next) {
     }
     const compare = await bcrypt.compare(password, user.password, function(err, isMatch){
         if(isMatch){
-            console.log('yes')
             // return true
             // set cookie here
-            res.json({ user });
+            const {jti, token} = generateToken(user)
+            user.tokenId = jti;
+            res.cookie('token', token);
+            res.json({ id: user.id, userName:user.userName });
             return;
         } else {
-            console.log('--------------------No')
             res.json({success: false, message: 'Password does not match a user.', status: 403});
             return
         }
     })
 }));
+
+
 
 module.exports = router;

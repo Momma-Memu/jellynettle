@@ -8,9 +8,6 @@ const reducer = combineReducers({
     authentication,
 });
 
-const initialState = {
-
-}
 
 const configureStore = () => {
     return createStore(
