@@ -24,11 +24,9 @@ export const grabPosts = (id) => async dispatch => {
         body: JSON.stringify({id}),
     });
     const data = await res.json();
-    // console.log(data)
     if(res.ok){
         dispatch(getPosts(data))
     }
-    // console.log(data)
     return;
 }
 
@@ -39,7 +37,6 @@ export const createPost = (id, message) => async dispatch => {
         body: JSON.stringify({id, message}),
     })
     const data = await res.json();
-    console.log(data)
     if(res.ok){
         dispatch(makePost(data));
     }

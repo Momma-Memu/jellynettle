@@ -78,6 +78,17 @@ const mainNavStyles = makeStyles((theme) => ({
             cursor: 'pointer',
         },
     },
+    search: {
+        color: 'white',
+        fontSize: 30,
+        marginRight: 30,
+        marginTop: 15,
+        // justifyContent: 'flex-end',
+        '&:hover': {
+            color: '#73E79E',
+            cursor: 'pointer',
+        },
+    }
   }));
 
 export default mainNavStyles;

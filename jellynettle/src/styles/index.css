@@ -52,6 +52,11 @@ code {
   width: 220px
 }
 
+.searchBar{
+  margin-right: 20px;
+  margin-bottom: 8px;
+}
+
 /* Moving the images out of screen on smaller laptops */
 
 @media only screen and (max-width: 797px) {

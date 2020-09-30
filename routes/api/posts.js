@@ -13,9 +13,12 @@ router.post('/', asyncHandler(async function (req, res, next) {
     const userId = Number(id)
     const userPosts = await Post.findAll({ where: { userId }, include: [ { model: User } ], order: [ ['id', 'DESC'] ]});
     const friends = await Friend.findAll({ attributes:['friendName', 'friendId'], where: { userId } });
+    console.log(` these are the friends${friends}`)
     const friendIds = friends.map(friend => {
         return friend.friendId
     })
+
+    console.log(friendIds)
 
     const friendPosts = await Post.findAll({ where: { userId:friendIds }, include: [ { model: User } ] });
 

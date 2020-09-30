@@ -13,6 +13,8 @@ import { NavLink } from 'react-router-dom'
 import Cookies from "js-cookie";
 import { logout } from '../store/authentication';
 import { useDispatch, useSelector } from 'react-redux';
+import TextField from '@material-ui/core/TextField';
+import SearchIcon from '@material-ui/icons/Search';
 
 
 const MainNav = () => {
@@ -35,6 +37,10 @@ const MainNav = () => {
                 <img src={logo} className={logoClass.logo2} alt='logo' />
             </NavLink>
             <h3 className={navClass.title}>JellyNettle</h3>
+            <div className='searchBar'>
+                <TextField id="standard-search" label="Search" type="search"/>
+                <SearchIcon className={navClass.search}/>
+            </div>
             <Tooltip title='Messages'>
                 <MailOutlineIcon className={navClass.messages}  />
             </Tooltip>
