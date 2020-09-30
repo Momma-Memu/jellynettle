@@ -4,7 +4,6 @@ const REMOVE_USER = 'REMOVE_USER';
 const FAILED_LOGIN = 'FAILED_LOGIN';
 const ADD_USER = 'ADD_USER';
 
-
 export const setUser = (user) => {
     return {
         type: SET_USER,
@@ -54,6 +53,7 @@ export const login = (email, password) => {
 }
 
 
+
 function loadUser() {
     const authToken = Cookies.get("token");
     if (authToken) {
@@ -82,7 +82,6 @@ export const signUpUser = (data) => async dispatch => {
         body: JSON.stringify(data),
     });
     const res = await response.json();
-    console.log(res)
     if(res.success === false){
         dispatch(failedLogin(res))
         return response;

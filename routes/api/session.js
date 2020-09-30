@@ -59,6 +59,20 @@ router.post('/make', asyncHandler(async function (req, res, next) {
     }
     return;
 }))
+router.post('/check', asyncHandler(async function (req, res, next) {
+    const { id, password } = req.body;
+    const user = await User.findByPk(id)
+    const compare = await bcrypt.compare(password, user.password, function(err, isMatch){
+        if(isMatch){
+            res.json({ success: true, message: 'Passwords match'});
+            return;
+        } else {
+            res.json({success: false, message: 'Password does not match a user.', status: 403});
+            return
+        }
+    })
+
+}))
 
 
 module.exports = router;

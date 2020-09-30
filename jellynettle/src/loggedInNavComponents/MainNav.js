@@ -12,10 +12,11 @@ import SettingsAccess from './SettingsAccess';
 import { NavLink } from 'react-router-dom'
 import Cookies from "js-cookie";
 import { logout } from '../store/authentication';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const MainNav = () => {
+    const { id } = useSelector(state => state.authentication)
     const logoClass = baseNavStyles();
     const navClass = mainNavStyles();
     const dispatch = useDispatch();
@@ -24,12 +25,15 @@ const MainNav = () => {
         dispatch(logout())
     }
 
+
     return (
         <div className={`${navClass.bar} mainNavBar`}>
             <Tooltip title ='My Groups'>
             <MenuIcon className={navClass.hamburger}/>
             </Tooltip>
-            <img src={logo} className={logoClass.logo2} alt='logo' />
+            <NavLink exact to='/'>
+                <img src={logo} className={logoClass.logo2} alt='logo' />
+            </NavLink>
             <h3 className={navClass.title}>JellyNettle</h3>
             <Tooltip title='Messages'>
                 <MailOutlineIcon className={navClass.messages}  />
@@ -38,7 +42,7 @@ const MainNav = () => {
                 <NotificationsNoneIcon className={navClass.notifications} />
             </Tooltip>
             <Tooltip title='Profile'>
-                <NavLink exact to='/profile'>
+                <NavLink to={`/profile/${id}`}>
                     <AccountCircleIcon className={navClass.account}/>
                 </NavLink>
             </Tooltip>

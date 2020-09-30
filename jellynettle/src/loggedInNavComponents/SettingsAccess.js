@@ -11,6 +11,8 @@ import TextField from '@material-ui/core/TextField';
 import Slide from '@material-ui/core/Slide';
 import { NavLink } from 'react-router-dom';
 import loginFieldStyles from '../styles/loginSignUpStyle';
+import { passwordConfirm } from '../store/passwordCheck'
+import { useSelector, useDispatch } from 'react-redux';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -29,8 +31,16 @@ export default function AlertDialogSlide() {
   const navClass = mainNavStyles();
   const fieldClasses = loginFieldStyles();
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+
+  const { id } = useSelector(state => state.authentication)
+  const { checkPass } = useSelector(state => state.checkPass)
 
   const updatePassword = e => setPassword(e.target.value);
+
+  const handleSubmit = () => {
+    dispatch(passwordConfirm(id, password))
+  }
 
   return (
     <div>
@@ -58,11 +68,11 @@ export default function AlertDialogSlide() {
                     autoComplete="current-password"/>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
+          <Button onClick={handleSubmit} color="primary">
+            Check Password
           </Button>
           <NavLink exact to="/settings" className="continueBtn">
-            <Button onClick={handleClose} color="primary">
+            <Button onClick={handleClose} disabled={!checkPass} color="primary">
                 Continue
             </Button>
           </NavLink>

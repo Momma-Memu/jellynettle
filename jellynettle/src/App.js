@@ -25,7 +25,7 @@ function App(props) {
         <Route path='/about' component={About}/>
         <Route path='/safety' component={Safety}/>
         <Route path='/support' component={Support} />
-        <PrivateRoute isLoggedIn={id} path='/profile' component={Profile}/>
+        <PrivateRoute isLoggedIn={id} path='/profile/:id' component={Profile}/>
         <PrivateRoute isLoggedIn={id} path='/settings' component={Settings}/>
       </BrowserRouter>
     </div>

@@ -1,4 +1,6 @@
 @import url("aboutTransMediaQ.css");
+@import url("posts.css");
+@import url("makePost.css");
 
 
 body {
@@ -16,6 +18,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* .false:disabled{
+  button[disabled]
+} */
 
 #root{
   position: fixed;
