@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { grabPosts } from '../store/posts';
 import { NavLink } from 'react-router-dom'

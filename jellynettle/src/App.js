@@ -11,7 +11,7 @@ import Profile from './profileComponents/ProfileBase';
 import Settings from './loggedInNavComponents/Settings';
 import Home from './homeComponents/Home';
 import { PrivateRoute } from './routesUtil';
-// import {useSelector} from 'react-redux';
+import SearchResults from './loggedInNavComponents/SearchResults';
 
 
 function App(props) {
@@ -27,6 +27,7 @@ function App(props) {
         <Route path='/support' component={Support} />
         <PrivateRoute isLoggedIn={id} path='/profile/:id' component={Profile}/>
         <PrivateRoute isLoggedIn={id} path='/settings' component={Settings}/>
+        <PrivateRoute isLoggedIn={id} path='/search/:value' component={SearchResults}/>
       </BrowserRouter>
     </div>
   );

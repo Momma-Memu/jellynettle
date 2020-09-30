@@ -57,6 +57,19 @@ code {
   margin-bottom: 8px;
 }
 
+.resultsContainer{
+  display: flex;
+  /* flex-direction: row; */
+  border: 1px solid linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  background: linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 500px;
+}
+
 /* Moving the images out of screen on smaller laptops */
 
 @media only screen and (max-width: 797px) {

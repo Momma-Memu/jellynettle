@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 const GET_POSTS = 'GET_POSTS';
 const MAKE_POST = 'MAKE_POST';
 
@@ -44,21 +43,21 @@ export const createPost = (id, message) => async dispatch => {
 }
 
 
-function loadUser() {
-    const authToken = Cookies.get("token");
-    if (authToken) {
-        try {
-            const payload = authToken.split(".")[1];
-            const decodedPayload = atob(payload);
-            const payloadObj = JSON.parse(decodedPayload);
-            const { data } = payloadObj;
-            return data;
-        } catch (e) {
-            Cookies.remove("token");
-        }
-    }
-    return { authentication: { message: '' }, token: authToken };
-}
+// function loadUser() {
+//     const authToken = Cookies.get("token");
+//     if (authToken) {
+//         try {
+//             const payload = authToken.split(".")[1];
+//             const decodedPayload = atob(payload);
+//             const payloadObj = JSON.parse(decodedPayload);
+//             const { data } = payloadObj;
+//             return data;
+//         } catch (e) {
+//             Cookies.remove("token");
+//         }
+//     }
+//     return { authentication: { message: '' }, token: authToken };
+// }
 
 
 export default function reducer(state={ userPosts: [], friendPosts: [] }, action) {

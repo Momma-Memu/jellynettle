@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../styles/images/LogoMakr_9328RJ.png'
 import { baseNavStyles } from '../styles/loginSignUpStyle';
 import mainNavStyles from '../styles/mainNavStyles';
@@ -19,14 +19,19 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const MainNav = () => {
     const { id } = useSelector(state => state.authentication)
+    const [ value, setValue ] = useState('');
+
     const logoClass = baseNavStyles();
     const navClass = mainNavStyles();
+
     const dispatch = useDispatch();
+
     const handleLogout = () => {
         Cookies.remove("token");
         dispatch(logout())
     }
 
+    const updateValue = e => setValue(e.target.value);
 
     return (
         <div className={`${navClass.bar} mainNavBar`}>
@@ -38,8 +43,14 @@ const MainNav = () => {
             </NavLink>
             <h3 className={navClass.title}>JellyNettle</h3>
             <div className='searchBar'>
-                <TextField id="standard-search" label="Search" type="search"/>
-                <SearchIcon className={navClass.search}/>
+                <TextField id="standard-search"
+                label="Search"
+                value={value}
+                onChange={updateValue}
+                type="search"/>
+                <NavLink to={`/search/${value}`}>
+                    <SearchIcon className={navClass.search}/>
+                </NavLink>
             </div>
             <Tooltip title='Messages'>
                 <MailOutlineIcon className={navClass.messages}  />
