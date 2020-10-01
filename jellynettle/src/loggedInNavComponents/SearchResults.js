@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom'
 
 const SearchResults = (props) => {
     const value = props.match.params.value;
-    console.log(value)
 
     const dispatch = useDispatch();
 

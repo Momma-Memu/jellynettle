@@ -9,14 +9,12 @@ export const search = (results) => {
 }
 
 export const getResults = (value) => async dispatch => {
-    console.log('here')
     const res = await fetch('/api/search', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({value}),
     });
     const data = await res.json();
-    console.log(data)
     if(res.ok){
         dispatch(search(data))
     }

@@ -49,12 +49,27 @@ const Feed = () => {
     if(!userPosts){
         return null;
     } else {
+
+        const shuffle = (array) => {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        const combine = (arr1, arr2) => {
+            const array = arr1.concat(arr2)
+            return shuffle(array)
+        }
+
+
         return(
             <>
                 <MakePost />
                 <div className="userFeed">
-                    {posts(userPosts)}
-                    {mapFriendPosts(friendPosts)}
+
+                    {combine(posts(userPosts), mapFriendPosts(friendPosts))}
                 </div>
             </>
         )
