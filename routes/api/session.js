@@ -68,7 +68,7 @@ router.post('/check', asyncHandler(async function (req, res, next) {
             res.json({ success: true, message: 'Passwords match'});
             return;
         } else {
-            res.json({success: false, message: 'Password does not match a user.', status: 403});
+            res.json({success: false, message: 'Password does not match the user.', status: 403});
             return
         }
     })

@@ -1,7 +1,7 @@
 @import url("aboutTransMediaQ.css");
 @import url("posts.css");
 @import url("makePost.css");
-
+@import url("profileCard.css");
 
 body {
   margin: 0;
@@ -70,7 +70,19 @@ code {
   justify-content: center;
   align-items: center;
   height: 80px;
-  width: 500px;
+  width: 200px;
+}
+
+.userSearchResults{
+  color: white;
+}
+
+.userSearchResults:hover{
+  text-decoration: underline;
+}
+
+.removeUnderline{
+  text-decoration: none;
 }
 
 /* Moving the images out of screen on smaller laptops */

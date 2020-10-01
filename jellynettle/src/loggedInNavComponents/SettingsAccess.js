@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -13,6 +13,7 @@ import { NavLink } from 'react-router-dom';
 import loginFieldStyles from '../styles/loginSignUpStyle';
 import { passwordConfirm } from '../store/passwordCheck'
 import { useSelector, useDispatch } from 'react-redux';
+// import { check } from 'express-validator';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -27,6 +28,7 @@ export default function AlertDialogSlide() {
 
   const handleClose = () => {
     setOpen(false);
+
   };
   const navClass = mainNavStyles();
   const fieldClasses = loginFieldStyles();
@@ -34,13 +36,31 @@ export default function AlertDialogSlide() {
   const dispatch = useDispatch();
 
   const { id } = useSelector(state => state.authentication)
-  const { checkPass } = useSelector(state => state.checkPass)
+  // const { checkPass } = useSelector(state => state.checkPass)
 
   const updatePassword = e => setPassword(e.target.value);
+  const [buttn, setButtn] = useState(false)
+  const [header, setHeader] = useState('')
 
   const handleSubmit = () => {
+    // console.log(id)
+    // console.log(password)
+    setPassword('')
     dispatch(passwordConfirm(id, password))
+    // continueButton(checkPass);
   }
+
+  const state = useSelector(state => state)
+
+  useEffect(() => {
+
+    if(state.checkPass === true){
+      setButtn(true)
+      setHeader('')
+    } else {
+      setHeader(state.checkPass.message)
+    }
+  }, [state]);
 
   return (
     <div>
@@ -59,6 +79,7 @@ export default function AlertDialogSlide() {
             Before you make any changes to your account, please confirm
             who you are!
           </DialogContentText>
+                    <p>{header}</p>
                     <TextField className={fieldClasses.root}
                     required id="standard-required"
                     label="Current Password"
@@ -71,11 +92,11 @@ export default function AlertDialogSlide() {
           <Button onClick={handleSubmit} color="primary">
             Check Password
           </Button>
-          <NavLink exact to="/settings" className="continueBtn">
-            <Button onClick={handleClose} disabled={!checkPass} color="primary">
-                Continue
-            </Button>
-          </NavLink>
+          {(!buttn) ? null : (<NavLink exact to="/settings" className="continueBtn">
+          <Button onClick={handleClose} color="primary">
+              Continue
+          </Button>
+        </NavLink>)}
         </DialogActions>
       </Dialog>
     </div>

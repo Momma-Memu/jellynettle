@@ -53,9 +53,8 @@ router.put('/full', asyncHandler(async function (req, res, next) {
         const update = await User.update(value, { where:  { id: id } })
     }
 
-    // console.log(validContent)
 
-    res.json({ success: 'maybe it worked? go check?', validContent: validContent })
+    res.json({ success: 'User info updated successfully', validContent: validContent })
 }))
 
 module.exports = router;

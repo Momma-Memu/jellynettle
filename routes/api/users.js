@@ -5,9 +5,10 @@ const { User } = require('../../db/models');
 
 const router = express.Router();
 
-router.get('/', asyncHandler(async function (req, res, next) {
-    const users = await User.findAll();
-    res.json({ users });
+router.post('/', asyncHandler(async function (req, res, next) {
+    const { id } = req.body
+    const user = await User.findByPk(id);
+    res.json({ user });
 }));
 
 module.exports = router;

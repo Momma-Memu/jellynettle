@@ -1,0 +1,29 @@
+.cardContainer{
+    border: 1px solid linear-gradient(45deg, #3474c8 30%, #34be95 70%);
+    background: linear-gradient(45deg, #3474c8 30%, #34be95 70%);
+    margin-top: 30px;
+    width: 300px;
+    height: 200px;
+}
+
+.profileUserName{
+    color: white;
+    font-size: 20px;
+}
+.profileGender{
+    margin-top: 10px;
+    color: white;
+    font-size: 12px;
+}
+
+.profileDescription{
+    margin-top: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.profileJoined{
+    margin-top: 10px;
+    color: white;
+    font-size: 12px;
+}

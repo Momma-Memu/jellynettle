@@ -18,8 +18,11 @@ const SearchResults = (props) => {
     const results = (users) => {
         return users.map(user => {
             return (
-                <div className='resultsContainer'>
-                    <div className=''>{user.userName}</div>
+
+                <div className='resultsContainer' key={user.id}>
+                    <NavLink to={`/profile/${user.id}`} className='removeUnderline'>
+                        <div className='userSearchResults' key={user.userName}>{user.userName}</div>
+                    </NavLink>
                 </div>
             )
         })

@@ -28,6 +28,7 @@ export const passwordConfirm = (id, password) => {
             return
         }
         if(res.ok){
+            // debugger
             dispatch(checkPassword(data.success))
         }
     }
