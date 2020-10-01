@@ -61,6 +61,8 @@ const mainNavStyles = makeStyles((theme) => ({
         color: 'white',
         fontSize: 30,
         marginLeft: 10,
+        // marginTop: 3,
+        // paddingRight: 5,
         justifyContent: 'flex-end',
         '&:hover': {
             color: '#73E79E',

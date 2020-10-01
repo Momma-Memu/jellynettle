@@ -1,0 +1,54 @@
+.friendRequestContainer{
+    border: solid 1px rgb(100, 158, 192);
+    background-color: rgb(100, 158, 192);
+    border-radius: 3px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.choiceDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+.acceptBtn{
+    margin-right: 15px;
+    border: solid 1px rgb(85, 115, 212);
+    background-color: rgb(85, 115, 212);
+    border-radius: 3px;
+    color: white;
+    padding: 2px 5px 2px 5px;
+}
+
+.acceptBtn:hover{
+    cursor: pointer;
+}
+
+.declineBtn{
+    border: solid 1px rgb(85, 115, 212);
+    background-color: rgb(85, 115, 212);
+    border-radius: 3px;
+    color: white;
+    padding: 2px 5px 2px 5px;
+}
+
+.declineBtn:hover{
+    cursor: pointer;
+}
+
+.notifications{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.numNotifications{
+    /* padding-left: 10px; */
+    font-size: 20px;
+    position: inherit;
+    color: rgb(93, 255, 179);
+    margin-top: 5px;
+
+}

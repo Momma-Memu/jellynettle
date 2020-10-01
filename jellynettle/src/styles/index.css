@@ -2,6 +2,7 @@
 @import url("posts.css");
 @import url("makePost.css");
 @import url("profileCard.css");
+@import url("notifications.css");
 
 body {
   margin: 0;

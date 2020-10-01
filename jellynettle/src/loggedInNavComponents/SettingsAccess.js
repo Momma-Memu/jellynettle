@@ -13,7 +13,6 @@ import { NavLink } from 'react-router-dom';
 import loginFieldStyles from '../styles/loginSignUpStyle';
 import { passwordConfirm } from '../store/passwordCheck'
 import { useSelector, useDispatch } from 'react-redux';
-// import { check } from 'express-validator';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

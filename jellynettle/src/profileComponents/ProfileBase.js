@@ -7,7 +7,7 @@ const ProfileBase = (props) => {
     return (
         <div className='profileContainer'>
             <MainNav/>
-            <ProfileCard props={props.match.params}/>
+            <ProfileCard params={props.match.params}/>
         </div>
     )
 }

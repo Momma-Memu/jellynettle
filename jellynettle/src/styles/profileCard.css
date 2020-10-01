@@ -27,3 +27,21 @@
     color: white;
     font-size: 12px;
 }
+
+.addFriend{
+    display: flex;
+    border: 1px solid #79a4dd;
+    background: #79a4dd;
+    color: white;
+    border-radius: 3px;
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 100px;
+    height: 25px;
+    align-content: center;
+    justify-content: center;
+}
+
+.addFriend:hover{
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../styles/images/LogoMakr_9328RJ.png'
 import { baseNavStyles } from '../styles/loginSignUpStyle';
 import mainNavStyles from '../styles/mainNavStyles';
@@ -15,10 +15,13 @@ import { logout } from '../store/authentication';
 import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
+import NotificationsTab from './Notifications';
+import { getRequestNotifications } from '../store/notifications';
 
 
 const MainNav = () => {
     const { id } = useSelector(state => state.authentication)
+    const requests = useSelector(state => state.notifications.requests);
     const [ value, setValue ] = useState('');
 
     const logoClass = baseNavStyles();
@@ -30,8 +33,17 @@ const MainNav = () => {
         Cookies.remove("token");
         dispatch(logout())
     }
+    useEffect(() => {
+        dispatch(getRequestNotifications(id))
+    }, [])
+    // dispatch(getRequestNotifications(id))
 
     const updateValue = e => setValue(e.target.value);
+    let amount;
+    if(requests){
+        amount = requests.length;
+    }
+
 
     return (
         <div className={`${navClass.bar} mainNavBar`}>
@@ -55,7 +67,10 @@ const MainNav = () => {
                 <MailOutlineIcon className={navClass.messages}  />
             </Tooltip>
             <Tooltip title='Notifications'>
-                <NotificationsNoneIcon className={navClass.notifications} />
+                <div className='notifications'>
+                    <NotificationsTab />
+                    <p className='numNotifications'>{!amount ? null : amount}</p>
+                </div>
             </Tooltip>
             <Tooltip title='Profile'>
                 <NavLink to={`/profile/${id}`}>
@@ -77,3 +92,5 @@ const MainNav = () => {
 }
 
 export default MainNav
+
+// <p>{!requests ? null : requests.length}</p>
