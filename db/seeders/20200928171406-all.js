@@ -37,6 +37,16 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          fullName: 'Andrew Barnes',
+          userName: 'butlin1994',
+          email: 'butlin1994@gmail.com',
+          password: bcrypt.hashSync('password'),
+          gender: 'Male',
+          dob: new Date('02-23-1994'),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       { returning: true }
     );
@@ -73,6 +83,30 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          userName: users[1].userName,
+          friendName: users[0].userName,
+          userId: users[1].id,
+          friendId: users[0].id,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userName: users[0].userName,
+          friendName: users[3].userName,
+          userId: users[0].id,
+          friendId: users[3].id,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userName: users[3].userName,
+          friendName: users[0].userName,
+          userId: users[3].id,
+          friendId: users[0].id,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
       ],
       { returning: true }
     );
@@ -90,6 +124,13 @@ module.exports = {
         {
           userId: users[1].id,
           message: 'Puppies are cute and we do not deserve them.',
+          likeCount: 100,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          userId: users[3].id,
+          message: 'Dank Memes are the way to go my dude.',
           likeCount: 100,
           createdAt: new Date(),
           updatedAt: new Date(),

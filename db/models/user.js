@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
      allowNull: false,
      unique: true,
     },
+    description: {
+      type: DataTypes.STRING(200),
+      allowNull: true,
+     },
     password: {
       type: DataTypes.STRING(255),
       allowNull: false,
@@ -38,6 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Member, { foreignKey: 'userId' });
     User.hasMany(models.Message, { foreignKey: 'fromId' });
     User.hasMany(models.Message, { foreignKey: 'toId' });
+    User.hasMany(models.Request, { foreignKey: 'toUserId' })
   };
   User.prototype.toSafeObject = function() {
     const {

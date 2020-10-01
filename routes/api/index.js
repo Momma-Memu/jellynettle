@@ -10,6 +10,8 @@ for (let route of routes) {
 router.use('/session', require('./session'))
 router.use('/posts', require('./posts'))
 router.use('/search', require('./search'));
+router.use('/add-remove-friend', require('./addRemoveFriend'));
+router.use('/update-user', require('./updateUser'));
 
 
 module.exports = router;

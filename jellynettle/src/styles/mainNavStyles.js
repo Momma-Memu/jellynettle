@@ -79,10 +79,13 @@ const mainNavStyles = makeStyles((theme) => ({
         },
     },
     search: {
+        // display: 'flex',
+        // flexDirection: 'column',
         color: 'white',
         fontSize: 30,
         marginRight: 30,
         marginTop: 15,
+        // flexGrow: 1,
         // justifyContent: 'flex-end',
         '&:hover': {
             color: '#73E79E',

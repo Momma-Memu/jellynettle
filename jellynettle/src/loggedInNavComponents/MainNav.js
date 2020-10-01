@@ -41,16 +41,15 @@ const MainNav = () => {
             <NavLink exact to='/'>
                 <img src={logo} className={logoClass.logo2} alt='logo' />
             </NavLink>
-            <h3 className={navClass.title}>JellyNettle</h3>
             <div className='searchBar'>
+                <NavLink to={`/search/${value}`}>
+                    <SearchIcon className={navClass.search}/>
+                </NavLink>
                 <TextField id="standard-search"
                 label="Search"
                 value={value}
                 onChange={updateValue}
                 type="search"/>
-                <NavLink to={`/search/${value}`}>
-                    <SearchIcon className={navClass.search}/>
-                </NavLink>
             </div>
             <Tooltip title='Messages'>
                 <MailOutlineIcon className={navClass.messages}  />

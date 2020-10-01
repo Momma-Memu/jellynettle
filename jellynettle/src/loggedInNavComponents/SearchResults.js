@@ -14,7 +14,7 @@ const SearchResults = (props) => {
 
     useEffect(() => {
         dispatch(getResults(value))
-    }, []);
+    }, [value]);
 
     const results = (users) => {
         return users.map(user => {
