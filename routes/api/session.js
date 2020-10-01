@@ -34,7 +34,7 @@ router.post('/', asyncHandler(async function (req, res, next) {
 
 
 router.post('/make', asyncHandler(async function (req, res, next) {
-    const {fullName, email, password, confirmPassword, userName, dob, gender } = req.body;
+    let {fullName, email, password, confirmPassword, userName, dob, gender } = req.body;
     if(password !== confirmPassword){
         res.status(403).json({success: false, message: 'Passwords do not match.' });
         return;
@@ -50,6 +50,7 @@ router.post('/make', asyncHandler(async function (req, res, next) {
         res.status(403).json({success: false, message: 'An account with this user name already exists.' });
         return;
     } else {
+        password = bcrypt.hashSync(password)
         const data = { fullName, email, password, userName, dob, gender }
             const user = await User.create(data);
             const {jti, token} = generateToken(user)
