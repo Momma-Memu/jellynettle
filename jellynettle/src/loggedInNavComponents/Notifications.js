@@ -24,22 +24,18 @@ export default function AlertDialogSlide() {
   const requests = useSelector(state => state.notifications.requests);
 
   const dispatch = useDispatch();
-  const handleClickOpen = () => {
+
+  const handleClickOpen = (e) => {
     setOpen(true);
-    // dispatch(getRequestNotifications(id))
   };
 
   const handleClose = () => {
     setOpen(false);
-
   };
 
-  const handleAccept = async () => {
-    // console.log(requests.fromUserId)
-    const div = document.querySelector('.acceptBtn')
+  const handleAccept = async (e) => {
+    const div = e.target;
     const friendId = Number(div.classList[1])
-
-    console.log(friendId)
 
     const res = await fetch('/api/add-remove-friend/acceptRequest', {
       method: 'post',
@@ -47,12 +43,20 @@ export default function AlertDialogSlide() {
       body: JSON.stringify({userId: id, friendId: friendId })
     });
     const response = await res.json();
-    // dispatch(getRequestNotifications(id))
+    // // dispatch(getRequestNotifications(id))
+
     const hideContainer = document.querySelector('.friendRequestContainer')
     hideContainer.classList.add('hideRequest')
 
-    const notificationCount = document.querySelector('.numNotifications')
-    notificationCount.classList.add('hideNotes')
+    const numOfNotes = document.querySelector('.numNotifications')
+
+    const num = Number(numOfNotes.innerHTML);
+    if(num > 1){
+      num = num - 1;
+      numOfNotes.innerHTML = num
+    } else {
+      numOfNotes.classList.add('hideNotes')
+    }
   }
 
   const handleDecline = async () => {
