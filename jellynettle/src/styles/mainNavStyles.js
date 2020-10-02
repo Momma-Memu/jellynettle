@@ -15,6 +15,7 @@ const mainNavStyles = makeStyles((theme) => ({
         paddingBottom: 1,
         paddingLeft: 15,
         fontSize: 30,
+        color: 'white',
         '&:hover': {
             color: '#73E79E',
             cursor: 'pointer',

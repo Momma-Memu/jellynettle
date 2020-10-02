@@ -3,13 +3,13 @@ import MainNav from '../loggedInNavComponents/MainNav';
 import Feed from './Feed';
 import SideBar from '../loggedInNavComponents/SideBar';
 
-const Home = () => {
+const Home = (props) => {
 
     return (
         <div className="main-background">
             <MainNav />
             <div className="main-background2">
-                <SideBar />
+                <SideBar params={props}/>
                 <div>
                     <Feed />
                 </div>

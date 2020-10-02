@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFriends } from '../store/friends';
+import { getFriends, getGroups } from '../store/friends';
 import { NavLink } from 'react-router-dom'
 
 const SideBar = () => {
     const { id } = useSelector(state => state.authentication);
     const { friends } = useSelector(state => state.friends);
+    const { groups } = useSelector(state => state.friends);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getFriends(id))
+        dispatch(getGroups(id))
     }, []);
 
     const friendMapper = () => {
@@ -23,15 +25,27 @@ const SideBar = () => {
             )
         })
     }
+
+    const groupMapper = () => {
+        return groups.map(group => {
+            return (
+                <NavLink to={`/group/${group.id}`} className='sideBarFriendLink'>
+                    <div className='sideBarFriend'>{group.name}</div>
+                </NavLink>
+            )
+        })
+    }
     return (
         <div className='sideBarContainer'>
             <div className='friendsContainer'>
-                <p>Friends:</p>
+                <p className='friendsSection'>Friends:</p>
                 {!friends ? null : friendMapper()}
             </div>
             <div className='groupsContainer'>
-                <p>Groups:</p>
+                <p className='groupsSection'>Groups:</p>
+                {!groups ? null : groupMapper()}
             </div>
+            <div className='sideBarBuffer'></div>
         </div>
     )
 }

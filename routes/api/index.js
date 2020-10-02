@@ -12,6 +12,7 @@ router.use('/posts', require('./posts'))
 router.use('/search', require('./search'));
 router.use('/add-remove-friend', require('./addRemoveFriend'));
 router.use('/update-user', require('./updateUser'));
+router.use('/create-group', require('./group'));
 
 
 module.exports = router;

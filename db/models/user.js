@@ -43,6 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Message, { foreignKey: 'fromId' });
     User.hasMany(models.Message, { foreignKey: 'toId' });
     User.hasMany(models.Request, { foreignKey: 'toUserId' })
+    User.hasMany(models.GroupPost, { foreignKey: 'userId'})
   };
   User.prototype.toSafeObject = function() {
     const {

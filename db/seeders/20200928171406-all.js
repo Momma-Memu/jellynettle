@@ -189,6 +189,7 @@ module.exports = {
       [
         {
           name: 'The Cool Group',
+          description: 'A group for cool people ONLY!',
           ownerId: users[0].id,
           userCount: 2,
           createdAt: new Date(),

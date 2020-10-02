@@ -10,6 +10,8 @@ import Support from './navComponents/Support'
 import Profile from './profileComponents/ProfileBase';
 import Settings from './loggedInNavComponents/Settings';
 import Home from './homeComponents/Home';
+import Group from './loggedInNavComponents/Group';
+import CreateGroup from './loggedInNavComponents/CreateGroup';
 import { PrivateRoute } from './routesUtil';
 import SearchResults from './loggedInNavComponents/SearchResults';
 
@@ -28,6 +30,8 @@ function App(props) {
         <PrivateRoute isLoggedIn={id} path='/profile/:id' component={Profile}/>
         <PrivateRoute isLoggedIn={id} path='/settings' component={Settings}/>
         <PrivateRoute isLoggedIn={id} path='/search/:value' component={SearchResults}/>
+        <PrivateRoute isLoggedIn={id} params={props} path='/group/:id' component={Group} />
+        <PrivateRoute isLoggedIn={id} path='/create-group' component={CreateGroup} />
       </BrowserRouter>
     </div>
   );

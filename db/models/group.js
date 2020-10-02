@@ -5,6 +5,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
+    description: {
+      type: DataTypes.STRING(1000),
+      allowNull: false,
+    },
     ownerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -16,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Group.associate = function(models) {
     Group.belongsTo(models.User, { foreignKey: 'ownerId' });
-    Group.hasMany(models.Member, {foreignKey: 'groupId'})
+    Group.hasMany(models.Member, {foreignKey: 'groupId'});
+    Group.hasMany(models.GroupPost, {foreignKey: 'groupId'});
   };
   return Group;
 };

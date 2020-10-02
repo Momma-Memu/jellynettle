@@ -17,6 +17,7 @@ import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsTab from './Notifications';
 import { getRequestNotifications } from '../store/notifications';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 
 
 const MainNav = () => {
@@ -47,8 +48,12 @@ const MainNav = () => {
 
     return (
         <div className={`${navClass.bar} mainNavBar`}>
-            <Tooltip title ='My Groups'>
-            <MenuIcon className={navClass.hamburger}/>
+            <Tooltip title ='Create Group'>
+            <div>
+            <NavLink exact to='/create-group'>
+            <AddBoxIcon className={navClass.hamburger}/>
+            </NavLink>
+            </div>
             </Tooltip>
             <NavLink exact to='/'>
                 <img src={logo} className={logoClass.logo2} alt='logo' />

@@ -8,6 +8,7 @@ import search from './Search'
 import findUser from './findUser';
 import notifications from './notifications';
 import friends from './friends';
+import group from './groupInfo';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -19,6 +20,7 @@ const reducer = combineReducers({
     findUser,
     notifications,
     friends,
+    group,
 });
 
 
