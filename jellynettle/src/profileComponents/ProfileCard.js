@@ -56,8 +56,6 @@ export default function ProfileCard({params}) {
   const updateDescription = e => setDescription(e.target.value);
 
   const handleAddDesc = async() => {
-    console.log(id)
-    console.log(description)
     const res = await fetch('/api/update-user/description', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -67,28 +65,42 @@ export default function ProfileCard({params}) {
     // setDescription('');
     const descriptionUpdater = document.querySelector('.descripTextField')
     descriptionUpdater.classList.add('tempHide')
+
     const newDescrip = document.querySelector('.newDescripHidden')
     newDescrip.classList.add('newDescripShown')
     newDescrip.classList.remove('newDescripHidden')
     newDescrip.innerHTML = description;
     // console.log(e.target)
+
+    const oldDescrip = document.querySelector('.profileDescription')
+    oldDescrip.classList.add('tempHide')
   }
 
   const handleEdit = () => {
-    const editor = document.querySelector('.tempHide')
-    console.log(editor)
-    if(!editor){
+    const editor = document.querySelector('.descripTextField')
+    if(!editor.classList.contains('tempHide')){
       const hideEditor = document.querySelector('.descripTextField');
-      console.log(hideEditor)
       hideEditor.classList.add('tempHide')
     } else {
+      console.log('yes unhide me');
       editor.classList.remove('tempHide');
+      console.log(editor.classList)
     }
 
     const oldDescrip = document.querySelector('.profileDescription')
-    if(oldDescrip){
-      oldDescrip.classList.add('newDescripHidden')
-      oldDescrip.classList.remove('newDescripShown')
+    if(oldDescrip.classList.contains('tempHide')){
+      oldDescrip.classList.remove('tempHide')
+    }
+
+    const oldDescripReset = oldDescrip.innerHTML
+    console.log(oldDescripReset);
+    if(description === ''){
+      console.log(description)
+      oldDescrip.innerHTML = oldDescripReset;
+      console.log(oldDescrip.innerHTML)
+    } else {
+      oldDescrip.classList.add('tempHide')
+      // oldDescrip.classList.remove('newDescripShown')
     }
   }
 
