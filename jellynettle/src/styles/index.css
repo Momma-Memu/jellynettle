@@ -3,6 +3,7 @@
 @import url("makePost.css");
 @import url("profileCard.css");
 @import url("notifications.css");
+@import url("sideBar.css");
 
 body {
   margin: 0;
@@ -34,9 +35,31 @@ code {
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: rgba(143, 157, 165, 0.315);
+  background-color:rgba(219, 218, 218, 0.527);
   overflow: scroll;
   overflow-x: hidden;
+  /* overflow-y: hidden; */
+}
+
+.main-background2{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.527);
+  overflow: scroll;
+  /* overflow-x: hidden; */
+  /* overflow-y: hidden; */
+}
+
+.main-background2::-webkit-scrollbar {
+  display: none;
+}
+
+.main-background::-webkit-scrollbar {
+  display: none;
 }
 
 .bg1{

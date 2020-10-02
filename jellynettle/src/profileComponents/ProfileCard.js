@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserInfo, addUser } from '../store/findUser';
+import TextField from '@material-ui/core/TextField';
+import SendIcon from '@material-ui/icons/Send';
 
 
 export default function ProfileCard({params}) {
@@ -25,6 +27,16 @@ export default function ProfileCard({params}) {
 
   const renderButton = isMe || isFriend;
 
+  let isNullDescription;
+
+  if(user){
+    if(user.description){
+      isNullDescription = true;
+    }
+  }
+
+  const renderDescriptionUpdater = !isNullDescription && isMe;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,14 +49,26 @@ export default function ProfileCard({params}) {
     dispatch(addUser(id, Number(userProfileId)));
   }
 
+  const handleAddDesc = (e) => {
+    console.log(description)
+  }
+
   const [addRequest, setAddRequest] = useState('Add Friend')
+  const [description, setDescription] = useState('');
+  const updateDescription = e => setDescription(e.target.value);
 
   return (!user) ? null :
    (
     <div className='cardContainer'>
-      <div className='profileUserName'>{user.userName}</div>
+      <div className='userNameContainer'>
+        <div className='profileUserName'>{user.userName}</div>
+      </div>
       <div className='profileGender'>{user.gender}</div>
       <div className='profileDescription'>{user.description}</div>
+      {!renderDescriptionUpdater ? null :
+        (<div className='descripTextField'><TextField id="standard-basic"
+        onChange={updateDescription} label="Add a description"/>
+        <SendIcon onClick={handleAddDesc} className='submitDescrip'/></div>)}
       <div className='profileJoined'>{`Joined on: ${user.createdAt.slice(0, 10)}`}</div>
       {renderButton ? null : (<div className='addFriend' onClick={handleClick}>{addRequest}</div>) }
     </div>

@@ -1,0 +1,16 @@
+.sideBarContainer{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid linear-gradient(45deg, #3474c8 30%, #349ebe 70%);
+    background: linear-gradient(45deg, #3474c8 30%, #349ebe 70%);
+    border-radius: 4px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    /* justify-content: center; */
+    align-items: center;
+    height: 600px;
+    width: 200px;
+    position: sticky;
+    top: 0;
+}

@@ -70,6 +70,7 @@ const Feed = () => {
                 <div className="userFeed">
 
                     {combine(posts(userPosts), mapFriendPosts(friendPosts))}
+                    <div className='buffer2'></div>
                 </div>
             </>
         )

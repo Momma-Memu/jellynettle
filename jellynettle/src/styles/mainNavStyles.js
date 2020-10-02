@@ -7,6 +7,9 @@ const mainNavStyles = makeStyles((theme) => ({
         alignItems: 'center',
         // justifyContent: 'center',
         flexGrow: 1,
+        marginBottom: 10,
+        position: 'sticky',
+        top: 0,
     },
     hamburger : {
         paddingBottom: 1,

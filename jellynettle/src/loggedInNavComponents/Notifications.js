@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -8,9 +8,9 @@ import mainNavStyles from '../styles/mainNavStyles';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import Slide from '@material-ui/core/Slide';
-import loginFieldStyles from '../styles/loginSignUpStyle';
-import { useSelector, useDispatch } from 'react-redux';
-import { getRequestNotifications } from '../store/notifications';
+// import loginFieldStyles from '../styles/loginSignUpStyle';
+import { useSelector } from 'react-redux';
+// import { getRequestNotifications } from '../store/notifications';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -23,7 +23,6 @@ export default function AlertDialogSlide() {
   const { id } = useSelector(state => state.authentication);
   const requests = useSelector(state => state.notifications.requests);
 
-  const dispatch = useDispatch();
 
   const handleClickOpen = (e) => {
     setOpen(true);
@@ -43,14 +42,13 @@ export default function AlertDialogSlide() {
       body: JSON.stringify({userId: id, friendId: friendId })
     });
     const response = await res.json();
-    // // dispatch(getRequestNotifications(id))
 
     const hideContainer = document.querySelector('.friendRequestContainer')
     hideContainer.classList.add('hideRequest')
 
     const numOfNotes = document.querySelector('.numNotifications')
 
-    const num = Number(numOfNotes.innerHTML);
+    let num = Number(numOfNotes.innerHTML);
     if(num > 1){
       num = num - 1;
       numOfNotes.innerHTML = num
@@ -59,7 +57,29 @@ export default function AlertDialogSlide() {
     }
   }
 
-  const handleDecline = async () => {
+  const handleDecline = async (e) => {
+    const div = e.target;
+    const friendId = Number(div.classList[1]);
+
+    const res = await fetch('/api/add-remove-friend/declineRequest', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({userId: id, friendId: friendId})
+    });
+    const response = await res.json();
+
+    const hideContainer = document.querySelector('.friendRequestContainer')
+    hideContainer.classList.add('hideRequest')
+
+    const numOfNotes = document.querySelector('.numNotifications')
+
+    let num = Number(numOfNotes.innerHTML);
+    if(num > 1){
+      num = num - 1;
+      numOfNotes.innerHTML = num
+    } else {
+      numOfNotes.classList.add('hideNotes')
+    }
 
   }
 
@@ -71,7 +91,7 @@ export default function AlertDialogSlide() {
             <p className='requestName'>{`${request.fromUserName}, wants to be your friend.`}</p>
             <div className='choiceDiv'>
                 <div className={`acceptBtn ${request.fromUserId}`} onClick={handleAccept}>Accept</div>
-                <div className='declineBtn' onClick={handleDecline}>Decline</div>
+                <div className={`declineBtn ${request.fromUserId}`} onClick={handleDecline}>Decline</div>
             </div>
         </div>
         )

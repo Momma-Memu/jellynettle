@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import MainNav from './MainNav';
 import { useSelector, useDispatch } from 'react-redux';
 import { getResults } from '../store/Search'

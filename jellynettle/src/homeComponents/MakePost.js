@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
-// import Container from '@material-ui/core/Container';
-// import Button from '@material-ui/core/Button'
 import { useSelector, useDispatch } from 'react-redux';
-// import loginFieldStyles, { loginContainerStyles } from '../styles/loginSignUpStyle';
-// import { grabPosts } from '../store/posts';
-// import { NavLink } from 'react-router-dom'
 import { createPost } from '../store/posts';
 
 

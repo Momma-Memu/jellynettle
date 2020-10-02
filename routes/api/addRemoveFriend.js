@@ -46,10 +46,19 @@ router.post('/acceptRequest', asyncHandler(async function (req, res, next) {
     const addFriend = await Friend.create({ userName, userId, friendName, friendId })
     const addFriend2 = await Friend.create({ userName: friendName, userId: friendId, friendName: userName, friendId: userId })
 
-    const deleteRequest = await Request.destroy({where: { toUserId: userId }})
+    const deleteRequest = await Request.destroy({where: { toUserId: userId, fromUserId: friendId } })
 
     res.json({ message: 'Maybe it worked? Check db.' })
 
 }))
+
+router.post('/declineRequest', asyncHandler(async function (req, res, next) {
+    const {userId, friendId} = req.body;
+
+    const deleteRequest = await Request.destroy({ where: { toUserId: userId, fromUserId: friendId } });
+
+    res.json({ message: 'maybe it worked?' })
+
+}));
 
 module.exports = router;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MainNav from './MainNav';
 import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
