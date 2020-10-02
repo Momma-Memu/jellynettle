@@ -29,12 +29,14 @@
 
 .profileDescription{
     margin-top: 10px;
+    margin-left: 10px;
     color: white;
     font-size: 15px;
 }
 
 .profileJoined{
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-left: 10px;
     color: white;
     font-size: 12px;
 }
@@ -71,4 +73,18 @@
 
 .submitDescrip:hover{
     cursor: pointer;
+}
+
+.hideDescripUpdate{
+    display: none;
+}
+
+.newDescripHidden{
+    display: none;
+}
+
+.newDescripShown{
+    color: white;
+    font-size: 15px;
+    margin-left: 10px;
 }

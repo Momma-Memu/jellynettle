@@ -49,13 +49,26 @@ export default function ProfileCard({params}) {
     dispatch(addUser(id, Number(userProfileId)));
   }
 
-  const handleAddDesc = (e) => {
-    console.log(description)
-  }
-
   const [addRequest, setAddRequest] = useState('Add Friend')
   const [description, setDescription] = useState('');
   const updateDescription = e => setDescription(e.target.value);
+
+  const handleAddDesc = async() => {
+    console.log(id)
+    console.log(description)
+    const res = await fetch('/api/update-user/description', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({id, description})
+    });
+    const response = await res.json();
+    const descriptionUpdater = document.querySelector('.descripTextField')
+    descriptionUpdater.classList.add('hideDescripUpdate')
+    const newDescrip = document.querySelector('.newDescripHidden')
+    newDescrip.classList.add('newDescripShown')
+    newDescrip.classList.remove('newDescripHidden')
+    // console.log(e.target)
+  }
 
   return (!user) ? null :
    (
@@ -69,6 +82,7 @@ export default function ProfileCard({params}) {
         (<div className='descripTextField'><TextField id="standard-basic"
         onChange={updateDescription} label="Add a description"/>
         <SendIcon onClick={handleAddDesc} className='submitDescrip'/></div>)}
+      <p className='newDescripHidden'>{description}</p>
       <div className='profileJoined'>{`Joined on: ${user.createdAt.slice(0, 10)}`}</div>
       {renderButton ? null : (<div className='addFriend' onClick={handleClick}>{addRequest}</div>) }
     </div>

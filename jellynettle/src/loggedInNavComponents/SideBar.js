@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFriends } from '../store/friends';
 import { NavLink } from 'react-router-dom'
@@ -6,19 +6,15 @@ import { NavLink } from 'react-router-dom'
 const SideBar = () => {
     const { id } = useSelector(state => state.authentication);
     const { friends } = useSelector(state => state.friends);
-    // const [friendArray, setFriendArray] = useState(friends)
-
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // if(friends) return;
         dispatch(getFriends(id))
     }, []);
 
     const friendMapper = () => {
         console.log(friends)
-        // if(!friends) return null;
         return friends.map(friend => {
             return (
                 <NavLink to={`/profile/${friend.friendId}`} className='sideBarFriendLink'>

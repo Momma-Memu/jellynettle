@@ -10,7 +10,7 @@ module.exports = {
         {
           fullName: 'Miah Barnes',
           userName: 'Memu',
-          email: 'miahellenbarnes@gmail.com',
+          email: 'memu@email.com',
           password: bcrypt.hashSync('password'),
           gender: 'Female',
           dob: new Date('03-21-1995'),
@@ -20,7 +20,7 @@ module.exports = {
         {
           fullName: 'Brandi Jernigan',
           userName: 'Leeloo',
-          email: 'brandi.jernigan@gmail.com',
+          email: 'leeloo@email.com',
           password: bcrypt.hashSync('password'),
           gender: 'Female',
           dob: new Date('12-23-1995'),
@@ -40,7 +40,7 @@ module.exports = {
         {
           fullName: 'Andrew Barnes',
           userName: 'butlin1994',
-          email: 'butlin1994@gmail.com',
+          email: 'butlin1994@email.com',
           password: bcrypt.hashSync('password'),
           gender: 'Male',
           dob: new Date('02-23-1994'),
