@@ -64,8 +64,9 @@ export default function ProfileCard({params}) {
       body: JSON.stringify({id, description})
     });
     const response = await res.json();
+    // setDescription('');
     const descriptionUpdater = document.querySelector('.descripTextField')
-    descriptionUpdater.classList.add('hideDescripUpdate')
+    descriptionUpdater.classList.add('tempHide')
     const newDescrip = document.querySelector('.newDescripHidden')
     newDescrip.classList.add('newDescripShown')
     newDescrip.classList.remove('newDescripHidden')
@@ -74,11 +75,19 @@ export default function ProfileCard({params}) {
 
   const handleEdit = () => {
     const editor = document.querySelector('.tempHide')
+    console.log(editor)
     if(!editor){
       const hideEditor = document.querySelector('.descripTextField');
+      console.log(hideEditor)
       hideEditor.classList.add('tempHide')
     } else {
       editor.classList.remove('tempHide');
+    }
+
+    const newDescrip = document.querySelector('.newDescripShown')
+    if(newDescrip){
+      newDescrip.classList.add('newDescripHidden')
+      newDescrip.classList.remove('newDescripShown')
     }
   }
 
@@ -94,7 +103,7 @@ export default function ProfileCard({params}) {
       </div>
       <div className='profileGender'>{user.gender}</div>
       <div className='profileDescription'>{user.description}</div>
-      {!renderDescriptionUpdater ? null :
+      {!isMe ? null :
         (<div className='descripTextField tempHide'><TextField id="standard-basic"
         onChange={updateDescription} label="Edit description"/>
         <SendIcon onClick={handleAddDesc} className='submitDescrip'/></div>)}
