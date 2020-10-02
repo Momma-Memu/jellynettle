@@ -14,3 +14,17 @@
     position: sticky;
     top: 0;
 }
+
+.sideBarFriendLink{
+    text-decoration: none;
+}
+
+.sideBarFriend{
+    color: white;
+    text-align: center;
+    /* margin-left: 10px; */
+}
+
+.sideBarFriend:hover{
+    text-decoration: underline;
+}

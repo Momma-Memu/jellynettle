@@ -12,4 +12,11 @@ router.post('/', asyncHandler(async function (req, res, next) {
     res.json({ user, friends });
 }));
 
+router.post('/friends', asyncHandler(async function (req, res, next) {
+    const { id } = req.body;
+    const friends = await Friend.findAll({ attributes:['friendName', 'friendId'], where: { userId: id } })
+
+    res.json({ friends })
+}))
+
 module.exports = router;
