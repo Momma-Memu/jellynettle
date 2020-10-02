@@ -39,14 +39,18 @@ export default function AlertDialogSlide() {
 
   }
 
+  const handleDecline = () => {
+
+  }
+
   const mapRequests = () => {
     return requests.map(request => {
         return(
         <div className='friendRequestContainer' key={request.id}>
-            <p className='requestName'>{`${request.User.userName}, wants to be your friend.`}</p>
+            <p className='requestName'>{`${request.fromUserName}, wants to be your friend.`}</p>
             <div className='choiceDiv'>
-                <div className='acceptBtn'>Accept</div>
-                <div className='declineBtn'>Decline</div>
+                <div className='acceptBtn' onClick={handleAccept}>Accept</div>
+                <div className='declineBtn' onClick={handleDecline}>Decline</div>
             </div>
         </div>
         )
