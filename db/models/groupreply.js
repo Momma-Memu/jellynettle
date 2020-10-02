@@ -19,8 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   GroupReply.associate = function(models) {
-    GroupReply.belongsTo(model.User, { foreignKey: 'userId' })
-    GroupReply.belongsTo(model.GroupComment, { foreignKey: 'groupCommentId' })
+    GroupReply.belongsTo(models.User, { foreignKey: 'userId' })
+    GroupReply.belongsTo(models.GroupComment, { foreignKey: 'groupCommentId' })
   };
   return GroupReply;
 };
