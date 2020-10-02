@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUserInfo, addUser } from '../store/findUser';
 import TextField from '@material-ui/core/TextField';
 import SendIcon from '@material-ui/icons/Send';
+import EditIcon from '@material-ui/icons/Edit';
+import Tooltip from '@material-ui/core/Tooltip';
 
 
 export default function ProfileCard({params}) {
@@ -70,17 +72,31 @@ export default function ProfileCard({params}) {
     // console.log(e.target)
   }
 
+  const handleEdit = () => {
+    const editor = document.querySelector('.tempHide')
+    if(!editor){
+      const hideEditor = document.querySelector('.descripTextField');
+      hideEditor.classList.add('tempHide')
+    } else {
+      editor.classList.remove('tempHide');
+    }
+  }
+
   return (!user) ? null :
    (
     <div className='cardContainer'>
       <div className='userNameContainer'>
         <div className='profileUserName'>{user.userName}</div>
+        {!isMe? null :
+          <Tooltip title='Edit Profile'>
+            <EditIcon className='editProfile' onClick={handleEdit}/>
+          </Tooltip>}
       </div>
       <div className='profileGender'>{user.gender}</div>
       <div className='profileDescription'>{user.description}</div>
       {!renderDescriptionUpdater ? null :
-        (<div className='descripTextField'><TextField id="standard-basic"
-        onChange={updateDescription} label="Add a description"/>
+        (<div className='descripTextField tempHide'><TextField id="standard-basic"
+        onChange={updateDescription} label="Edit description"/>
         <SendIcon onClick={handleAddDesc} className='submitDescrip'/></div>)}
       <p className='newDescripHidden'>{description}</p>
       <div className='profileJoined'>{`Joined on: ${user.createdAt.slice(0, 10)}`}</div>

@@ -88,3 +88,16 @@
     font-size: 15px;
     margin-left: 10px;
 }
+
+.editProfile{
+    color: #00d9ff;
+    margin-left: 320px;
+}
+
+.editProfile:hover{
+    cursor: pointer;
+}
+
+.tempHide{
+    display: none;
+}
