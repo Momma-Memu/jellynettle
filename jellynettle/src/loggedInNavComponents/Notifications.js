@@ -23,7 +23,6 @@ export default function AlertDialogSlide() {
   const { id } = useSelector(state => state.authentication);
   const requests = useSelector(state => state.notifications.requests);
 
-
   const dispatch = useDispatch();
   const handleClickOpen = () => {
     setOpen(true);
@@ -35,13 +34,28 @@ export default function AlertDialogSlide() {
 
   };
 
-  const handleAccept = () => {
+  const handleAccept = async () => {
+    // console.log(requests.fromUserId)
+    const div = document.querySelector('.acceptBtn')
+    const friendId = Number(div.classList[1])
+
+    console.log(friendId)
+
+    const res = await fetch('/api/add-remove-friend/acceptRequest', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({userId: id, friendId: friendId })
+    });
+    const response = await res.json();
+    // dispatch(getRequestNotifications(id))
+    const hideContainer = document.querySelector('.friendRequestContainer')
+    hideContainer.classList.add('hideRequest')
+  }
+
+  const handleDecline = async () => {
 
   }
 
-  const handleDecline = () => {
-
-  }
 
   const mapRequests = () => {
     return requests.map(request => {
@@ -49,7 +63,7 @@ export default function AlertDialogSlide() {
         <div className='friendRequestContainer' key={request.id}>
             <p className='requestName'>{`${request.fromUserName}, wants to be your friend.`}</p>
             <div className='choiceDiv'>
-                <div className='acceptBtn' onClick={handleAccept}>Accept</div>
+                <div className={`acceptBtn ${request.fromUserId}`} onClick={handleAccept}>Accept</div>
                 <div className='declineBtn' onClick={handleDecline}>Decline</div>
             </div>
         </div>

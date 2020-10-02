@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Request, User } = require('../../db/models');
+const { Request, User, Friend } = require('../../db/models');
 const { generateToken } = require('./security-utils');
 const { Op } = require("sequelize");
 
@@ -14,12 +14,9 @@ router.post('/request', asyncHandler(async function (req, res, next) {
 
     const toUserName = toUser.userName;
     const fromUserName = fromUser.userName
-    console.log(toUserName)
-    console.log(fromUserName)
 
     const addFriend = await Request.create({fromUserId, toUserId, toUserName, fromUserName})
-    // const user = await User.findByPk(userId)
-    // const friend = await User.findByPk(friendId)
+
     const message = 'Your friend request was sent. Once they accept it, you will be able to chat, and see their posts on your feed.';
 
     res.json({ message })
@@ -37,6 +34,22 @@ router.post('/getRequests', asyncHandler(async function (req, res, next){
 
 router.post('/acceptRequest', asyncHandler(async function (req, res, next) {
     const { userId, friendId } = req.body;
+
+    // console.log(`===ID LIST HERE: ${userId}, ${friendId} ====`)
+
+    const user = await User.findByPk(userId)
+    const friend = await User.findByPk(friendId)
+
+    const userName = user.userName;
+    const friendName = friend.userName
+
+    const addFriend = await Friend.create({ userName, userId, friendName, friendId })
+    const addFriend2 = await Friend.create({ userName: friendName, userId: friendId, friendName: userName, friendId: userId })
+
+    const deleteRequest = await Request.destroy({where: { toUserId: userId }})
+
+    res.json({ message: 'Maybe it worked? Check db.' })
+
 }))
 
 module.exports = router;
