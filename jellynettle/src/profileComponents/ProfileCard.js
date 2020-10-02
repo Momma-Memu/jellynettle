@@ -70,6 +70,7 @@ export default function ProfileCard({params}) {
     const newDescrip = document.querySelector('.newDescripHidden')
     newDescrip.classList.add('newDescripShown')
     newDescrip.classList.remove('newDescripHidden')
+    newDescrip.innerHTML = description;
     // console.log(e.target)
   }
 
@@ -84,10 +85,10 @@ export default function ProfileCard({params}) {
       editor.classList.remove('tempHide');
     }
 
-    const newDescrip = document.querySelector('.newDescripShown')
-    if(newDescrip){
-      newDescrip.classList.add('newDescripHidden')
-      newDescrip.classList.remove('newDescripShown')
+    const oldDescrip = document.querySelector('.profileDescription')
+    if(oldDescrip){
+      oldDescrip.classList.add('newDescripHidden')
+      oldDescrip.classList.remove('newDescripShown')
     }
   }
 
