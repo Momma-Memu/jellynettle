@@ -50,6 +50,9 @@ export default function AlertDialogSlide() {
     // dispatch(getRequestNotifications(id))
     const hideContainer = document.querySelector('.friendRequestContainer')
     hideContainer.classList.add('hideRequest')
+
+    const notificationCount = document.querySelector('.numNotifications')
+    notificationCount.classList.add('hideNotes')
   }
 
   const handleDecline = async () => {
