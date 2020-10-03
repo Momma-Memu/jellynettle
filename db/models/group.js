@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Group.associate = function(models) {
     Group.belongsTo(models.User, { foreignKey: 'ownerId' });
-    Group.hasMany(models.Member, {foreignKey: 'groupId'});
+    Group.hasMany(models.Member, {foreignKey: 'groupId'})
     Group.hasMany(models.GroupPost, {foreignKey: 'groupId'});
   };
   return Group;

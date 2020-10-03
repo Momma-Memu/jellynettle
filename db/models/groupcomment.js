@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   GroupComment.associate = function(models) {
     GroupComment.belongsTo(models.GroupPost, { foreignKey: 'groupPostId'})
+    GroupComment.hasMany(models.GroupReply, { foreignKey: 'groupCommentId' })
     GroupComment.belongsTo(models.User, { foreignKey: 'userId'} )
   };
   return GroupComment;
