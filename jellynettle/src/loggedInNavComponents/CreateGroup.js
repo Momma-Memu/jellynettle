@@ -5,6 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button'
 import MainNav from './MainNav';
+import { NavLink } from 'react-router-dom'
+import { makeNewGroup } from '../store/newGroup';
 
 
 const CreateGroup = () => {
@@ -12,12 +14,15 @@ const CreateGroup = () => {
     const containerClasses = loginContainerStyles();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+    const { id } = useSelector(state => state.authentication)
+    const ownerId = id;
 
-    const handleSubmit = async () => {
-        // dispatch(login(email, password))
+    const dispatch = useDispatch();
+
+    const handleSubmit = async (e) => {
+        dispatch(makeNewGroup(name, description, ownerId))
     }
 
-    const { id } = useSelector(state => state.authentication)
 
     const updateName = e => setName(e.target.value);
     const updateDescription = e => setDescription(e.target.value);
@@ -38,7 +43,9 @@ const CreateGroup = () => {
                     label="Group Description"
                     value={description}
                     onChange={updateDescription}/>
+                    <NavLink to='/' className='buttn'>
                     <Button className={fieldClasses.Button} onClick={handleSubmit}>Create</Button>
+                    </NavLink>
                 </Container>
             </div>
         </div>

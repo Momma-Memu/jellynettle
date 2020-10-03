@@ -22,6 +22,7 @@ const Group = (props) => {
                         <div className='groupName'>{group.name}</div>
                         <div className='groupDescription'>{group.description}</div>
                         <div className='groupDate'>{`Around Since: ${group.createdAt.slice(0, 10)}`}</div>
+                        <div className='memberCount'>{`Total Members: ${group.userCount}`}</div>
                     </div>
                 </div>
             )

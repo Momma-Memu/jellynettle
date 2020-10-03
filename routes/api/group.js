@@ -6,8 +6,19 @@ const { User, Group, Member, GroupPost } = require('../../db/models');
 const router = express.Router();
 
 router.post('/make', asyncHandler(async function (req, res, next) {
-    const { ownerId, name } = req.body
+    const { name, description, ownerId } = req.body
     const userCount = 1;
+    const data = { name, description, ownerId, userCount }
+
+    const newGroup = await Group.create(data)
+
+    const groupId = newGroup.id;
+    const userId = ownerId;
+    const memberData = {groupId, userId}
+
+    const member = await Member.create(memberData)
+
+    res.json(newGroup)
 
 }));
 

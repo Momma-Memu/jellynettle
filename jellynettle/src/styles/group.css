@@ -25,3 +25,16 @@
     margin-left: 10px;
     font-size: 12px;
 }
+
+.memberCount{
+    color: white;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+.buttn{
+    display: flex;
+    flex-direction: column;
+    width: 341px;
+    text-decoration: none;
+}
