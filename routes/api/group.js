@@ -43,5 +43,19 @@ router.post('/getPosts', asyncHandler(async function(req, res, next) {
     res.json({ groupPosts })
 }));
 
+router.post ('/getMembers', asyncHandler(async function(req, res, next) {
+    const { groupId } = req.body;
+
+    const members = await Member.findAll({where: { groupId }})
+
+    const userIds = members.map(member => {
+        return member.userId
+    })
+
+    const users = await User.findAll({ where: {id: userIds}})
+
+    res.json(users)
+}));
+
 
 module.exports = router;

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import MainNav from './MainNav'
 import { getGroupInfo } from '../store/groupInfo';
 import GroupFeed from './GroupFeed';
+import GroupSideBar from './GroupSideBar';
 
 const Group = (props) => {
     const groupId = Number(props.match.params.id);
@@ -34,7 +35,7 @@ const Group = (props) => {
             <MainNav />
             {!group ? null : mapGroup(group)}
             <div className="main-background2">
-                <div>sidebar</div>
+                <GroupSideBar groupId={groupId} />
                 <div>
                     <GroupFeed groupId={groupId}/>
                 </div>
