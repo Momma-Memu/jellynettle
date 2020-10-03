@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { useSelector, useDispatch } from 'react-redux';
-import { createPost } from '../store/posts';
+import { createGroupPost } from '../store/posts';
 
 
-const MakeGroupPost = () => {
+const MakeGroupPost = (props) => {
     const { id } = useSelector(state => state.authentication);
     const [ message, setMessage ] = useState('');
 
     const dispatch = useDispatch()
 
+    const groupId = props.groupId;
+
     const handleSubmit = async (e) => {
-        dispatch(createPost(id, message))
+        dispatch(createGroupPost(id, groupId, message))
         setMessage('')
     }
 

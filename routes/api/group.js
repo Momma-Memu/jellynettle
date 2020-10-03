@@ -17,13 +17,17 @@ router.post('/makePost', asyncHandler(async function(req, res, next) {
     const data = { groupId, userId, message, likeCount }
     const newPost = await GroupPost.create(data)
 
-    res.json(newPost)
+    const id = newPost.id;
+
+    const post = await GroupPost.findOne({ where: { id }, include: [ { model: User } ] })
+
+    res.json(post)
 }));
 
 router.post('/getPosts', asyncHandler(async function(req, res, next) {
     const { id } = req.body;
 
-    const groupPosts = await GroupPost.findAll({ where: { groupId: id }, include: [ { model: User } ] })
+    const groupPosts = await GroupPost.findAll({ where: { groupId: id }, include: [ { model: User } ], order: [ ['id', 'DESC'] ] })
 
     res.json({ groupPosts })
 }));

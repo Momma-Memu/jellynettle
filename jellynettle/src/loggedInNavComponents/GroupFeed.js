@@ -35,7 +35,7 @@ const Feed = (props) => {
     } else {
         return(
             <>
-                <MakeGroupPost />
+                <MakeGroupPost groupId={id}/>
                 <div className="userFeed">
                     {!groupPosts ? null : posts(groupPosts)}
                     <div className='buffer2'></div>

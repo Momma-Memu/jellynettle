@@ -72,16 +72,16 @@ export const grabGroupPosts = (id) => async dispatch => {
     return;
 }
 
-export const createGroupPost = (groupId, userId, message) => async dispatch => {
-    // const res = await fetch('api/posts/make', {
-    //     method: 'post',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({id, message}),
-    // })
-    // const data = await res.json();
-    // if(res.ok){
-    //     dispatch(makePost(data));
-    // }
+export const createGroupPost = (userId, groupId, message) => async dispatch => {
+    const res = await fetch('/api/create-group/makePost', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({userId, groupId, message}),
+    })
+    const data = await res.json();
+    if(res.ok){
+        dispatch(makeGroupPost(data));
+    }
     return;
 }
 
@@ -98,7 +98,7 @@ export default function reducer(state={ userPosts: [], friendPosts: [] }, action
         case MAKE_GROUP_POST:
             const arr2 = [...state.groupPosts]
             arr2.unshift(action.post)
-            return {...state, groupPosts: arr}
+            return {...state, groupPosts: arr2}
         default:
             return state;
     }
