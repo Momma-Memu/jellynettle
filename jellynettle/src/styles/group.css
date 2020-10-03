@@ -1,0 +1,27 @@
+.groupBanner{
+    border: 1px solid linear-gradient(45deg, #3474c8 30%, #349ebe 70%);
+    background: linear-gradient(45deg, #3474c8 30%, #349ebe 70%);
+    border-radius: 3px;
+    height: 120px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.groupName{
+    font-size: 35px;
+    color: white;
+    margin-left: 10px;
+}
+
+.groupDescription{
+    font-size: 15px;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.groupDate{
+    color: white;
+    margin-left: 10px;
+    font-size: 12px;
+}

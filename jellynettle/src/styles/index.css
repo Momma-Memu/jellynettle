@@ -4,6 +4,7 @@
 @import url("profileCard.css");
 @import url("notifications.css");
 @import url("sideBar.css");
+@import url("group.css");
 
 body {
   margin: 0;
