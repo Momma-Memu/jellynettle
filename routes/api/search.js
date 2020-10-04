@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Post, Friend, User } = require('../../db/models');
+const { Post, Friend, User, Group } = require('../../db/models');
 const { generateToken } = require('./security-utils');
 const { Op } = require("sequelize");
 
@@ -11,7 +11,9 @@ router.post('/', asyncHandler(async function (req, res, next) {
 
     const users = await User.findAll({ where: { userName: { [Op.like]: `%${value}%` } } })
 
-    res.json({ users })
+    const groups = await Group.findAll({ where: {name: { [Op.like]: `%${value}%` }}})
+
+    res.json({ users, groups })
     return
 }));
 

@@ -88,14 +88,14 @@ code {
 .resultsContainer{
   display: flex;
   /* flex-direction: row; */
-  border: 1px solid linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
-  background: linear-gradient(45deg, #A673FF 30%, #4FADFF 70%);
+  border: 1px solid linear-gradient(45deg, #3474c8 30%, #349ebe 70%);
+  background: linear-gradient(45deg, #3474c8 30%, #349ebe 70%);
   margin-top: 30px;
   margin-bottom: 30px;
   justify-content: center;
   align-items: center;
   height: 80px;
-  width: 200px;
+  width: 250px;
 }
 
 .userSearchResults{
@@ -109,6 +109,38 @@ code {
 .removeUnderline{
   text-decoration: none;
 }
+
+.groupSearchResults{
+  color: white;
+}
+
+.joinGroup{
+  border: solid 1px #2a5fd1;
+  border-radius: 3px;
+  background-color: #2a5fd1;
+  margin-left: 10px;
+  color: white;
+  padding: 3px 8px 3px 8px;
+}
+
+.joinGroup:hover{
+  cursor: pointer;
+}
+
+.resultUsers{
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.resultGroups{
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.request{
+  margin-left: 10px;
+}
+
 
 /* Moving the images out of screen on smaller laptops */
 
@@ -218,6 +250,10 @@ code {
 
 .buffer{
   margin-top: 800px;
+}
+
+.buffer3{
+  margin-top: 100px;
 }
 
 .bannerContainer{

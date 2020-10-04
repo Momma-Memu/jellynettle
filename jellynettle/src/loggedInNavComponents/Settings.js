@@ -41,7 +41,7 @@ const Settings = () => {
     }
 
     return(
-        <div>
+        <div className='main-background'>
             <MainNav />
             <Container className={containerClasses.root2}>
                     <TextField className={fieldClasses.root}
@@ -80,6 +80,7 @@ const Settings = () => {
                     <Button className={containerClasses.Button}
                     onClick={handleSubmit}>Submit Changes</Button>
                 </Container>
+                <div className='buffer3'></div>
         </div>
     )
 }

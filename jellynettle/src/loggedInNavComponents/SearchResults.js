@@ -10,12 +10,19 @@ const SearchResults = (props) => {
     const dispatch = useDispatch();
 
     const { users } = useSelector(state => state.search)
+    const { groups } = useSelector(state => state.search);
 
     useEffect(() => {
         dispatch(getResults(value))
     }, [value]);
 
-    const results = (users) => {
+    const handleSubmit = (e) => {
+        e.target.classList.add('tempHide')
+        const sent = document.querySelector('.request')
+        sent.classList.remove('tempHide')
+    }
+
+    const userResults = (users) => {
         return users.map(user => {
             return (
 
@@ -23,6 +30,18 @@ const SearchResults = (props) => {
                     <NavLink to={`/profile/${user.id}`} className='removeUnderline'>
                         <div className='userSearchResults' key={user.userName}>{user.userName}</div>
                     </NavLink>
+                </div>
+            )
+        })
+    }
+
+    const groupResults = (groups) => {
+        return groups.map(group => {
+            return (
+                <div className='resultsContainer' key={group.id}>
+                    <div className='groupSearchResults' key={group.name}>{group.name}</div>
+                    <div className='joinGroup' onClick={handleSubmit}>Join</div>
+                    <p className='request tempHide'>Request sent.</p>
                 </div>
             )
         })
@@ -37,9 +56,14 @@ const SearchResults = (props) => {
         )
     }
     return(
-        <div>
+        <div className='main-background'>
             <MainNav />
-            {results(users)}
+            <p className='resultUsers'>Users: </p>
+            {userResults(users)}
+
+            <p className='resultGroups'>Groups: </p>
+            {!groups ? null : groupResults(groups)}
+            <div className='buffer2'></div>
         </div>
     )
 }
