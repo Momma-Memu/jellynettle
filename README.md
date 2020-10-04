@@ -34,7 +34,7 @@
 
 
 ![Image of DB schema]
-(JellyNettle-1.jpg)
+(./JellyNettle-1.jpg)
 
  ### Features
  **1.   Should be able to create a profile**
