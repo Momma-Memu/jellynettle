@@ -32,6 +32,10 @@
  * Groups can have a title,
  * Possible group chat/instant messenger if I have time or in the future
 
+
+![Image of DB schema]
+(JellyNettle-1.jpg)
+
  ### Features
  **1.   Should be able to create a profile**
 

@@ -15,7 +15,7 @@ const SideBar = (props) => {
     const memberMapper = (members) => {
         return members.map(member => {
             return (
-                <NavLink to={`/profile/${member.userId}`} className='sideBarFriendLink'>
+                <NavLink to={`/profile/${member.id}`} className='sideBarFriendLink'>
                     <div className='sideBarFriend'>{member.userName}</div>
                 </NavLink>
             )
