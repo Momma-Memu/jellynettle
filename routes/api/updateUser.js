@@ -20,13 +20,11 @@ router.put('/full', asyncHandler(async function (req, res, next) {
     let { id, fullName, userName, email, password, confirmPassword, gender } = req.body;
 
     if(password !== undefined){
-        console.log(password)
         if(password !== confirmPassword){
             res.json({ succcess: false, message: 'New passwords do not match.' });
             return;
         };
         password = bcrypt.hashSync(password)
-        console.log(password)
     };
     const content = [ {fullName}, {userName}, {email}, {password}, {gender} ];
     const keys = ['fullName', 'userName', 'email', 'password', 'gender']
@@ -34,7 +32,6 @@ router.put('/full', asyncHandler(async function (req, res, next) {
     for(let i = 0; i < content.length; i++){
         let obj = content[i]
         let key = keys[i]
-        // console.log(obj[key])
         if(obj[key] !== undefined){
             validContent.push(obj)
         }

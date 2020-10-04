@@ -36,7 +36,6 @@ const Settings = () => {
                 delete data[key]
             }
         }
-        // console.log(data)
         dispatch(updateUser(data))
     }
 

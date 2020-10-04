@@ -22,6 +22,7 @@ export default function AlertDialogSlide() {
 
   const { id } = useSelector(state => state.authentication);
   const requests = useSelector(state => state.notifications.requests);
+  const joinRequests = useSelector(state => state.notifications.joinRequests);
 
 
   const handleClickOpen = (e) => {
@@ -83,6 +84,14 @@ export default function AlertDialogSlide() {
 
   }
 
+  const handleJoinAccept = () => {
+
+  }
+
+  const handleJoinDecline = () => {
+
+  }
+
 
   const mapRequests = () => {
     return requests.map(request => {
@@ -95,6 +104,20 @@ export default function AlertDialogSlide() {
             </div>
         </div>
         )
+    })
+  }
+
+  const mapJoinRequests = () => {
+    return joinRequests.map(request => {
+      return (
+        <div className='friendRequestContainer' key={request.id}>
+        <p className='requestName'>{`${request.userName}, wants to Join your group, "${request.Group.name}".`}</p>
+        <div className='choiceDiv'>
+            <div className={`acceptBtn ${request.userId}`} onClick={handleJoinAccept}>Accept</div>
+            <div className={`declineBtn ${request.userId}`} onClick={handleJoinDecline}>Decline</div>
+        </div>
+    </div>
+      )
     })
   }
 
@@ -112,9 +135,10 @@ export default function AlertDialogSlide() {
         <DialogTitle id="alert-dialog-slide-title">{"Notifications"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Friend Requests:
+            Requests:
           </DialogContentText>
             {(!requests) ? null : mapRequests()}
+            {(!joinRequests) ? null : mapJoinRequests()}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

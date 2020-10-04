@@ -74,7 +74,7 @@ router.post('/getGroupRequests', asyncHandler(async function(req, res, next) {
         return group.id;
     })
 
-    const requests = await GroupRequest.findAll({ where: { groupId: groupIds } })
+    const requests = await GroupRequest.findAll({ where: { groupId: groupIds }, include: [ { model: Group } ] })
 
     res.json(requests)
 

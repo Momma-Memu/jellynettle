@@ -35,18 +35,15 @@ export default function AlertDialogSlide() {
   const dispatch = useDispatch();
 
   const { id } = useSelector(state => state.authentication)
-  // const { checkPass } = useSelector(state => state.checkPass)
 
   const updatePassword = e => setPassword(e.target.value);
   const [buttn, setButtn] = useState(false)
   const [header, setHeader] = useState('')
 
   const handleSubmit = () => {
-    // console.log(id)
-    // console.log(password)
+
     setPassword('')
     dispatch(passwordConfirm(id, password))
-    // continueButton(checkPass);
   }
 
   const state = useSelector(state => state)

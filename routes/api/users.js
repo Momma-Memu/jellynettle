@@ -23,7 +23,6 @@ router.post('/groups', asyncHandler(async function(req, res, next) {
     const { id } = req.body;
     const memberOf = await Member.findAll({ where: { userId: id }})
     if(memberOf.length <= 0){
-        res.json({ message: 'No groups'})
         return;
     } else {
         const groupIds = memberOf.map(member => {

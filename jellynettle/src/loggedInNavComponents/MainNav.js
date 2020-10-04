@@ -16,13 +16,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsTab from './Notifications';
-import { getRequestNotifications } from '../store/notifications';
+import { getRequestNotifications, getJoinRequests } from '../store/notifications';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 
 
 const MainNav = () => {
     const { id } = useSelector(state => state.authentication)
     const requests = useSelector(state => state.notifications.requests);
+    const joinRequests = useSelector(state => state.notifications.joinRequests);
     const [ value, setValue ] = useState('');
 
     const logoClass = baseNavStyles();
@@ -36,6 +37,7 @@ const MainNav = () => {
     }
     useEffect(() => {
         dispatch(getRequestNotifications(id))
+        dispatch(getJoinRequests(id))
     }, [])
     // dispatch(getRequestNotifications(id))
 
@@ -43,6 +45,10 @@ const MainNav = () => {
     let amount;
     if(requests){
         amount = requests.length;
+    }
+
+    if(joinRequests){
+        amount += joinRequests.length;
     }
 
 

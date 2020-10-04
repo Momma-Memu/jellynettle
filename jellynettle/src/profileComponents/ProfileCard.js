@@ -70,7 +70,6 @@ export default function ProfileCard({params}) {
     newDescrip.classList.add('newDescripShown')
     newDescrip.classList.remove('newDescripHidden')
     newDescrip.innerHTML = description;
-    // console.log(e.target)
 
     const oldDescrip = document.querySelector('.profileDescription')
     oldDescrip.classList.add('tempHide')
@@ -82,9 +81,7 @@ export default function ProfileCard({params}) {
       const hideEditor = document.querySelector('.descripTextField');
       hideEditor.classList.add('tempHide')
     } else {
-      console.log('yes unhide me');
       editor.classList.remove('tempHide');
-      console.log(editor.classList)
     }
 
     const oldDescrip = document.querySelector('.profileDescription')
@@ -93,11 +90,8 @@ export default function ProfileCard({params}) {
     }
 
     const oldDescripReset = oldDescrip.innerHTML
-    console.log(oldDescripReset);
     if(description === ''){
-      console.log(description)
       oldDescrip.innerHTML = oldDescripReset;
-      console.log(oldDescrip.innerHTML)
     } else {
       oldDescrip.classList.add('tempHide')
       // oldDescrip.classList.remove('newDescripShown')

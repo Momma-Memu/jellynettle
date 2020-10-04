@@ -4,8 +4,6 @@ import { getMembers } from '../store/members';
 import { NavLink } from 'react-router-dom';
 
 const SideBar = (props) => {
-    // const { id } = useSelector(state => state.authentication);
-    // const { friends } = useSelector(state => state.friends);
     const members = useSelector(state => state.members);
     const id = props.groupId
     const dispatch = useDispatch();

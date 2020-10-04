@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom'
 
 const SideBar = () => {
     const { id } = useSelector(state => state.authentication);
-    const { friends } = useSelector(state => state.friends);
-    const { groups } = useSelector(state => state.friends);
+    const { friends } = useSelector(state => state.friends) || [];
+    const { groups } = useSelector(state => state.friends) || [];
 
     const dispatch = useDispatch();
 
@@ -15,8 +15,7 @@ const SideBar = () => {
         dispatch(getGroups(id))
     }, []);
 
-    const friendMapper = () => {
-        console.log(friends)
+    const friendMapper = (friends) => {
         return friends.map(friend => {
             return (
                 <NavLink to={`/profile/${friend.friendId}`} className='sideBarFriendLink'>
@@ -26,7 +25,7 @@ const SideBar = () => {
         })
     }
 
-    const groupMapper = () => {
+    const groupMapper = (groups) => {
         return groups.map(group => {
             return (
                 <NavLink to={`/group/${group.id}`} className='sideBarFriendLink'>
@@ -39,11 +38,11 @@ const SideBar = () => {
         <div className='sideBarContainer'>
             <div className='friendsContainer'>
                 <p className='friendsSection'>Friends:</p>
-                {!friends ? null : friendMapper()}
+                {!friends ? null : friendMapper(friends)}
             </div>
             <div className='groupsContainer'>
                 <p className='groupsSection'>Groups:</p>
-                {!groups ? null : groupMapper()}
+                {!groups ? null : groupMapper(groups)}
             </div>
             <div className='sideBarBuffer'></div>
         </div>

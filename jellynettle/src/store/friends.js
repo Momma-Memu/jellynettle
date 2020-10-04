@@ -23,7 +23,6 @@ export const getFriends = (id) => async dispatch => {
         body: JSON.stringify({id})
     })
     const friends = await res.json();
-    console.log(friends)
     if(res.ok){
         dispatch(putFriends(friends))
     }
@@ -42,7 +41,7 @@ export const getGroups = (id) => async dispatch => {
     }
 }
 
-export default function reducer(state={ friends: []}, action) {
+export default function reducer(state={ friends: [], groups: []}, action) {
     switch(action.type){
         case FRIENDS:
             return action.friends;

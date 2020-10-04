@@ -35,7 +35,6 @@ router.post('/getRequests', asyncHandler(async function (req, res, next){
 router.post('/acceptRequest', asyncHandler(async function (req, res, next) {
     const { userId, friendId } = req.body;
 
-    // console.log(`===ID LIST HERE: ${userId}, ${friendId} ====`)
 
     const user = await User.findByPk(userId)
     const friend = await User.findByPk(friendId)
