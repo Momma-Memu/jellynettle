@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { User, Group, Member, GroupPost } = require('../../db/models');
+const { User, Group, Member, GroupPost, GroupRequest } = require('../../db/models');
 
 const router = express.Router();
 
@@ -55,6 +55,29 @@ router.post ('/getMembers', asyncHandler(async function(req, res, next) {
     const users = await User.findAll({ where: {id: userIds}})
 
     res.json(users)
+}));
+
+router.post('/request', asyncHandler(async function(req, res, next) {
+    const { userId, userName, groupId } = req.body;
+    const data = { userId, userName, groupId }
+    const groupRequest = await GroupRequest.create(data)
+
+    res.json(groupRequest)
+}));
+
+router.post('/getGroupRequests', asyncHandler(async function(req, res, next) {
+    const { ownerId } = req.body;
+
+    const groups = await Group.findAll({ where: { ownerId }});
+
+    const groupIds = groups.map(group => {
+        return group.id;
+    })
+
+    const requests = await GroupRequest.findAll({ where: { groupId: groupIds } })
+
+    res.json(requests)
+
 }));
 
 
