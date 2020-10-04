@@ -37,6 +37,9 @@ export default function AlertDialogSlide() {
     const div = e.target;
     const friendId = Number(div.classList[1])
 
+    const hideContainer = e.target.parentNode.parentNode;
+    hideContainer.classList.add('hideRequest')
+
     const res = await fetch('/api/add-remove-friend/acceptRequest', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -44,8 +47,6 @@ export default function AlertDialogSlide() {
     });
     const response = await res.json();
 
-    const hideContainer = document.querySelector('.friendRequestContainer')
-    hideContainer.classList.add('hideRequest')
 
     const numOfNotes = document.querySelector('.numNotifications')
 
@@ -62,6 +63,9 @@ export default function AlertDialogSlide() {
     const div = e.target;
     const friendId = Number(div.classList[1]);
 
+    const hideContainer = e.target.parentNode.parentNode;
+    hideContainer.classList.add('hideRequest')
+
     const res = await fetch('/api/add-remove-friend/declineRequest', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -69,8 +73,6 @@ export default function AlertDialogSlide() {
     });
     const response = await res.json();
 
-    const hideContainer = document.querySelector('.friendRequestContainer')
-    hideContainer.classList.add('hideRequest')
 
     const numOfNotes = document.querySelector('.numNotifications')
 
@@ -84,12 +86,55 @@ export default function AlertDialogSlide() {
 
   }
 
-  const handleJoinAccept = () => {
+  const handleJoinAccept = async(e) => {
+    const groupId = Number(e.target.classList[1]);
+    const userId = Number(e.target.classList[2]);
+
+    const hider = e.target.parentNode.parentNode;
+    console.log(hider)
+    hider.classList.add('hideRequest')
+
+    const res = await fetch('/api/create-group/acceptJoin', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({groupId, userId})
+    })
+
+    const numOfNotes = document.querySelector('.numNotifications')
+
+    let num = Number(numOfNotes.innerHTML);
+    if(num > 1){
+      num = num - 1;
+      numOfNotes.innerHTML = num
+    } else {
+      numOfNotes.classList.add('hideNotes')
+    }
 
   }
 
-  const handleJoinDecline = () => {
+  const handleJoinDecline = async(e) => {
+    const groupId = Number(e.target.classList[1]);
+    const userId = Number(e.target.classList[2]);
 
+    const hider = e.target.parentNode.parentNode;
+    console.log(hider)
+    hider.classList.add('hideRequest')
+
+    const res = await fetch('/api/create-group/declineJoin', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({groupId, userId})
+    })
+
+    const numOfNotes = document.querySelector('.numNotifications')
+
+    let num = Number(numOfNotes.innerHTML);
+    if(num > 1){
+      num = num - 1;
+      numOfNotes.innerHTML = num
+    } else {
+      numOfNotes.classList.add('hideNotes')
+    }
   }
 
 
@@ -113,8 +158,8 @@ export default function AlertDialogSlide() {
         <div className='friendRequestContainer' key={request.id}>
         <p className='requestName'>{`${request.userName}, wants to Join your group, "${request.Group.name}".`}</p>
         <div className='choiceDiv'>
-            <div className={`acceptBtn ${request.userId}`} onClick={handleJoinAccept}>Accept</div>
-            <div className={`declineBtn ${request.userId}`} onClick={handleJoinDecline}>Decline</div>
+            <div className={`acceptBtn ${request.Group.id} ${request.userId}`} onClick={handleJoinAccept}>Accept</div>
+            <div className={`declineBtn ${request.Group.id} ${request.userId}`} onClick={handleJoinDecline}>Decline</div>
         </div>
     </div>
       )

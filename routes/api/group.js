@@ -80,5 +80,31 @@ router.post('/getGroupRequests', asyncHandler(async function(req, res, next) {
 
 }));
 
+router.post('/acceptJoin', asyncHandler(async function(req, res, next) {
+    const { groupId, userId } = req.body;
+
+    const deleteRequest = await GroupRequest.destroy({ where: { groupId, userId } })
+
+    const data = { groupId, userId }
+    const member = await Member.create(data);
+
+    const group = await Group.findByPk(groupId);
+
+    const userCount = group.userCount += 1;
+    console.log(`------------${userCount}`)
+
+    const update = await Group.update({userCount: userCount}, { where: { id: groupId } })
+
+    res.json({ message: 'Maybe it worked?' })
+}));
+
+router.post('/declineJoin', asyncHandler(async function(req, res, next) {
+    const { groupId, userId } = req.body;
+
+    const deleteRequest = await GroupRequest.destroy({ where: { groupId, userId } })
+
+    res.json({ message: 'declined request worked.' })
+}));
+
 
 module.exports = router;
