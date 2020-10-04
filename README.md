@@ -3,10 +3,13 @@
 **1.   A Users table with a many relationship for**
   * Comments
   * Posts
-  * Likes
-  * Uploaded images?
+  * Likes (Future update)
+  * Uploaded images (coming to a future update)
   * One relationship or many with profile pic?
-  * groups?
+  * groups
+  * GroupPosts
+  * GroupComments (Future update)
+  * GroupReplies (Future update)
 
 
 **2.   A comments table with a belongs to relationship to a user**
