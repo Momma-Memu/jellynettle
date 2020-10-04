@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     Group.belongsTo(models.User, { foreignKey: 'ownerId' });
     Group.hasMany(models.Member, {foreignKey: 'groupId'})
     Group.hasMany(models.GroupPost, {foreignKey: 'groupId'});
+    Group.hasMany(models.GroupRequest, { foreignKey: 'groupId' });
   };
   return Group;
 };

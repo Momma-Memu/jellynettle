@@ -42,10 +42,11 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Member, { foreignKey: 'userId' });
     User.hasMany(models.Message, { foreignKey: 'fromId' });
     User.hasMany(models.Message, { foreignKey: 'toId' });
-    User.hasMany(models.Request, { foreignKey: 'toUserId' })
-    User.hasMany(models.GroupPost, { foreignKey: 'userId'})
-    User.hasMany(models.GroupComment, { foreignKey: 'userId' })
-    User.hasMany(models.GroupReply, { foreignKey: 'userId' })
+    User.hasMany(models.Request, { foreignKey: 'toUserId' });
+    User.hasMany(models.GroupPost, { foreignKey: 'userId'});
+    User.hasMany(models.GroupComment, { foreignKey: 'userId' });
+    User.hasMany(models.GroupReply, { foreignKey: 'userId' });
+    User.hasMany(models.GroupRequest, { foreignKey: 'userId' });
   };
   User.prototype.toSafeObject = function() {
     const {
