@@ -7,6 +7,7 @@ import { createPost } from '../store/posts';
 const MakePost = () => {
     const { id } = useSelector(state => state.authentication);
     const [ message, setMessage ] = useState('');
+    const { userName } = useSelector(state => state.authentication)
 
     const dispatch = useDispatch()
 
@@ -24,7 +25,7 @@ const MakePost = () => {
             <TextField id="standard-basic"
             value={message}
             onChange={updateMessage}
-            label="What's up?" />
+            label={!userName ? "What's up?" : `What's up, ${userName}?`} />
             <div className='postButton' onClick={handleSubmit}>Post</div>
         </div>
     )
