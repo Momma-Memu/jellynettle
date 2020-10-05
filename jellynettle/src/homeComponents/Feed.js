@@ -25,7 +25,7 @@ const Feed = () => {
                     </NavLink>
                     <div className='userPost'>{post.message}</div>
                     <div className='postDate'>{post.createdAt.slice(0, 10)}</div>
-                    <div className='upvotes'>{post.likeCount}</div>
+                    <div className='upvotes'></div>
                 </div>
             )
         })
@@ -40,7 +40,7 @@ const Feed = () => {
                     </NavLink>
                     <div className='userPost'>{post.message}</div>
                     <div className='postDate'>{post.createdAt.slice(0, 10)}</div>
-                    <div className='upvotes'>{post.likeCount}</div>
+                    <div className='upvotes'></div>
                 </div>
             )
         })
