@@ -4,6 +4,7 @@ import { grabPosts } from '../store/posts';
 import { NavLink } from 'react-router-dom'
 import MakePost from './MakePost';
 import Comments from './Comments';
+import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';
 
 
 const Feed = () => {
@@ -13,11 +14,15 @@ const Feed = () => {
 
     const dispatch = useDispatch();
 
-    const comments = false;
+    let comments = false;
 
     useEffect(() => {
         dispatch(grabPosts(id))
     }, [comments]);
+
+    const handleDropDown = () => {
+
+    }
 
     const posts = (userPosts) => {
         return userPosts.map(post => {
@@ -30,7 +35,9 @@ const Feed = () => {
                     <div className='postDate'>{post.createdAt.slice(0, 10)}</div>
                     <div className='upvotes'></div>
                     <div className='postNav'>
-                    <div className='commentsButton'>Comments</div>
+                    <div className='commentsButton'>Comments
+                        <ArrowDropDownRoundedIcon className='commentsIcon'/>
+                    </div>
                     <div className='likeButton'>Like</div>
                     </div>
                     {!comments ? null : <Comments />}
@@ -50,7 +57,9 @@ const Feed = () => {
                     <div className='postDate'>{post.createdAt.slice(0, 10)}</div>
                     <div className='upvotes'></div>
                     <div className='postNav'>
-                    <div className='commentsButton'>Comments</div>
+                    <div className='commentsButton' onClick={handleDropDown}>Comments
+                        <ArrowDropDownRoundedIcon className='commentsIcon'/>
+                    </div>
                     <div className='likeButton'>Like</div>
                     </div>
                     {!comments ? null : <Comments />}
