@@ -13,6 +13,7 @@ router.use('/search', require('./search'));
 router.use('/add-remove-friend', require('./addRemoveFriend'));
 router.use('/update-user', require('./updateUser'));
 router.use('/create-group', require('./group'));
+router.use('/comments', require('./comments'));
 
 
 module.exports = router;

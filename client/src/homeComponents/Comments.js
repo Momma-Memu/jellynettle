@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { getComments } from '../store/comments';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Comments = (props) => {
+const Comments = ({data}) => {
+
     return (
-        <div>hello</div>
+        <div className={'commentsContainer'}>
+            <div>{data.User.userName}</div>
+            <div>{data.message}</div>
+        </div>
     )
 }
 

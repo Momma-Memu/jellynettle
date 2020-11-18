@@ -11,6 +11,7 @@ import friends from './friends';
 import group from './groupInfo';
 import newGroup from './newGroup';
 import members from './members';
+import comments from './comments';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -25,6 +26,7 @@ const reducer = combineReducers({
     group,
     newGroup,
     members,
+    comments,
 });
 
 

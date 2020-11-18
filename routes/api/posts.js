@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcryptjs');
-const { Post, Friend, User } = require('../../db/models');
+const { Post, Friend, User, Comment } = require('../../db/models');
 const { generateToken } = require('./security-utils');
 // const jwt = require('jsonwebtoken');
 // const uuid = require('uuid').v4;
@@ -11,13 +11,13 @@ const router = express.Router();
 router.post('/', asyncHandler(async function (req, res, next) {
     const { id } = req.body
     const userId = Number(id)
-    const userPosts = await Post.findAll({ where: { userId }, include: [ { model: User } ], order: [ ['id', 'DESC'] ]});
+    const userPosts = await Post.findAll({ where: { userId }, include: [ { model: User }, { model: Comment, include: [ { model: User } ]} ], order: [ ['id', 'DESC'] ]});
     const friends = await Friend.findAll({ attributes:['friendName', 'friendId'], where: { userId } });
     const friendIds = friends.map(friend => {
         return friend.friendId
     })
 
-    const friendPosts = await Post.findAll({ where: { userId:friendIds }, include: [ { model: User } ] });
+    const friendPosts = await Post.findAll({ where: { userId:friendIds }, include: [ { model: User }, { model: Comment, include: [ { model: User } ]} ] });
 
     res.json({ userPosts, friendPosts: friendPosts })
     return

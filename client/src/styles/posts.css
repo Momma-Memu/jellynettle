@@ -102,6 +102,11 @@
 .commentsIcon{
     font-size: medium;
     margin-left: 5px;
+    transform: rotate(270deg);
+}
+
+.commentsIconOpen{
+    transform: rotate(90deg)
 }
 
 .likeButton{

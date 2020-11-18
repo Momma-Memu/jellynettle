@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { grabPosts } from '../store/posts';
 import { NavLink } from 'react-router-dom'
 import MakePost from './MakePost';
-import Comments from './Comments';
+// import Comments from './Comments';
+import { getComments } from '../store/comments';
 import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';
+import Post from './Post';
 
 
 const Feed = () => {
@@ -14,36 +16,29 @@ const Feed = () => {
 
     const dispatch = useDispatch();
 
-    let comments = false;
+    // let comments = false;
 
     useEffect(() => {
         dispatch(grabPosts(id))
-    }, [comments]);
+    }, []);
 
-    const handleDropDown = () => {
-
+    const handleDropDown = (e) => {
+        console.log(e.target)
     }
 
-    const posts = (userPosts) => {
-        return userPosts.map(post => {
+
+    const comments = (comments) => {
+        return comments.map(comment => {
             return (
-                <div className='postContainer' key={post.message}>
-                    <NavLink to={`/profile/${post.userId}`}  className='userNameLink'>
-                        <div className='userName'>{post.User.userName}</div>
-                    </NavLink>
-                    <div className='userPost'>{post.message}</div>
-                    <div className='postDate'>{post.createdAt.slice(0, 10)}</div>
-                    <div className='upvotes'></div>
-                    <div className='postNav'>
-                    <div className='commentsButton'>Comments
-                        <ArrowDropDownRoundedIcon className='commentsIcon'/>
-                    </div>
-                    <div className='likeButton'>Like</div>
-                    </div>
-                    {!comments ? null : <Comments />}
+                <div className='commentsContainer'>
+                    <div>{comment.message}</div>
                 </div>
             )
         })
+    }
+
+    const posts = (userPosts) => {
+        return userPosts.map(post => <Post key={post.id} post={post}/>)
     }
 
     const mapFriendPosts = (friendPosts) => {
@@ -57,12 +52,11 @@ const Feed = () => {
                     <div className='postDate'>{post.createdAt.slice(0, 10)}</div>
                     <div className='upvotes'></div>
                     <div className='postNav'>
-                    <div className='commentsButton' onClick={handleDropDown}>Comments
-                        <ArrowDropDownRoundedIcon className='commentsIcon'/>
-                    </div>
+                        <div className='commentsButton' onClick={handleDropDown}>Comments
+                            <ArrowDropDownRoundedIcon onClick={handleDropDown} className='commentsIcon'/>
+                        </div>
                     <div className='likeButton'>Like</div>
                     </div>
-                    {!comments ? null : <Comments />}
                 </div>
             )
         })
