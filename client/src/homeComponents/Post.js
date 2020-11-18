@@ -18,7 +18,6 @@ const Post = ({post}) => {
 
     const [dropBool, setDropBool] = useState(false);
 
-    const { userPosts } = useSelector(state => state.posts)
 
     const comments = post.Comments.map((comment) => <Comments key={comment.message} data={comment} /> )
 

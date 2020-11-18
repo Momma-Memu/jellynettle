@@ -5,6 +5,7 @@
 @import url("notifications.css");
 @import url("sideBar.css");
 @import url("group.css");
+@import url("./comments.css");
 
 body {
   margin: 0;

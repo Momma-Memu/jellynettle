@@ -42,24 +42,7 @@ const Feed = () => {
     }
 
     const mapFriendPosts = (friendPosts) => {
-        return friendPosts.map(post => {
-            return(
-                <div className='postContainer' key={post.message}>
-                    <NavLink to={`/profile/${post.userId}`}  className='userNameLink'>
-                        <div className='userName'>{post.User.userName}</div>
-                    </NavLink>
-                    <div className='userPost'>{post.message}</div>
-                    <div className='postDate'>{post.createdAt.slice(0, 10)}</div>
-                    <div className='upvotes'></div>
-                    <div className='postNav'>
-                        <div className='commentsButton' onClick={handleDropDown}>Comments
-                            <ArrowDropDownRoundedIcon onClick={handleDropDown} className='commentsIcon'/>
-                        </div>
-                    <div className='likeButton'>Like</div>
-                    </div>
-                </div>
-            )
-        })
+        return friendPosts.map(post => <Post key={post.id} post={post} />)
     }
 
     if(!userPosts){

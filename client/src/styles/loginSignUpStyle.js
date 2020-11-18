@@ -4,13 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 export const baseNavStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        background: 'linear-gradient(45deg, #A673FF 30%, #4FADFF 70%)',
+        background: 'linear-gradient(45deg, #8058c5 30%, #4393da 70%)',
         justifyContent: 'space-around',
         alignItems: 'center',
         borderRadius: 3,
         boxShadow: '0 3px 5px 2px rgba(200, 180, 255, .5)',
         marginBottom: 80,
-        height:  70,
+        height:  100,
     },
     link: {
         borderBottom: 10,
@@ -48,7 +48,7 @@ const loginFieldStyles = makeStyles((theme) => ({
 
     },
     Button:{
-        background: 'linear-gradient(45deg, #A673FF 20%, #4FADFF 110%)',
+        background: 'linear-gradient(45deg, #8058c5 20%, #4393da 110%)',
         color: 'white',
 
     }
@@ -57,7 +57,7 @@ const loginFieldStyles = makeStyles((theme) => ({
 export const loginContainerStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        background: 'linear-gradient(45deg, #A673FF 30%, #4FADFF 90%)',
+        background: 'linear-gradient(45deg, #8058c5 30%, #4393da 70%)',
         border: 0,
         borderRadius: 3,
         boxShadow: '0 3px 5px 2px rgba(200, 180, 255, .5)',
@@ -80,7 +80,7 @@ export const loginContainerStyles = makeStyles((theme) => ({
 export const signUpContainerStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        background: 'linear-gradient(45deg, #A673FF 30%, #4FADFF 90%)',
+        background: 'linear-gradient(45deg, #8058c5 30%, #4393da 90%)',
         border: 0,
         borderRadius: 3,
         boxShadow: '0 3px 5px 2px rgba(200, 180, 255, .5)',
@@ -94,7 +94,7 @@ export const signUpContainerStyles = makeStyles((theme) => ({
     },
     root2: {
         display: 'flex',
-        background: 'linear-gradient(45deg, #A673FF 30%, #4FADFF 90%)',
+        background: 'linear-gradient(45deg, #8058c5 30%, #4393da 90%)',
         border: 0,
         borderRadius: 3,
         boxShadow: '0 3px 5px 2px rgba(200, 180, 255, .5)',
@@ -113,7 +113,7 @@ export const signUpContainerStyles = makeStyles((theme) => ({
         textAlign: 'center',
     },
     Button:{
-        background: 'linear-gradient(45deg, #A673FF 30%, #4FADFF 130%)',
+        background: 'linear-gradient(45deg, #8058c5 30%, #4393da 130%)',
         color: 'white',
 
     },
