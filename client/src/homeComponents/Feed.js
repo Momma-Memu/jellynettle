@@ -3,9 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { grabPosts } from '../store/posts';
 import { NavLink } from 'react-router-dom'
 import MakePost from './MakePost';
-// import Comments from './Comments';
-import { getComments } from '../store/comments';
-import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';
+// import { getComments } from '../store/comments';
+// import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';
 import Post from './Post';
 
 
@@ -22,20 +21,20 @@ const Feed = () => {
         dispatch(grabPosts(id))
     }, []);
 
-    const handleDropDown = (e) => {
-        console.log(e.target)
-    }
+    // const handleDropDown = (e) => {
+    //     console.log(e.target)
+    // }
 
 
-    const comments = (comments) => {
-        return comments.map(comment => {
-            return (
-                <div className='commentsContainer'>
-                    <div>{comment.message}</div>
-                </div>
-            )
-        })
-    }
+    // const comments = (comments) => {
+    //     return comments.map(comment => {
+    //         return (
+    //             <div className='commentsContainer'>
+    //                 <div>{comment.message}</div>
+    //             </div>
+    //         )
+    //     })
+    // }
 
     const posts = (userPosts) => {
         return userPosts.map(post => <Post key={post.id} post={post}/>)
