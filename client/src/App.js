@@ -6,7 +6,7 @@ import SignUp from './loginComponents/SignUp';
 import { Route } from 'react-router-dom';
 import About from './navComponents/About';
 import Safety from './navComponents/Safety';
-import Support from './navComponents/Support'
+// import Support from './navComponents/Support'
 import Profile from './profileComponents/ProfileBase';
 import Settings from './loggedInNavComponents/Settings';
 import Home from './homeComponents/Home';
@@ -26,7 +26,6 @@ function App(props) {
         <Route path='/signup' component={SignUp}/>
         <Route path='/about' component={About}/>
         <Route path='/safety' component={Safety}/>
-        <Route path='/support' component={Support} />
         <PrivateRoute isLoggedIn={id} path='/profile/:id' component={Profile}/>
         <PrivateRoute isLoggedIn={id} path='/settings' component={Settings}/>
         <PrivateRoute isLoggedIn={id} path='/search/:value' component={SearchResults}/>

@@ -20,10 +20,6 @@ const BaseNav = () => {
                 What is JellyNettle?</NavLink>
             </div>
             <div className={container.link}>
-                <NavLink exact to='/support' className={container.linkText}>
-                Support</NavLink>
-            </div>
-            <div className={container.link}>
                 <NavLink exact to='/login' className={container.linkText}>
                 Login</NavLink>
             </div>
