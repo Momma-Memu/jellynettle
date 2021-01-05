@@ -1,5 +1,12 @@
 /* for large screens */
 
+.buffer-about{
+    margin-top: 1200px;
+    min-height: 100px;
+    min-width: 100%;
+}
+
+
 .divs-to-animate{
     position: absolute;
     margin-top: 60px;
@@ -114,13 +121,14 @@
     transition-duration: 0.5s;
     transition-property: right;
     transition-timing-function: linear;
+    margin-bottom: 100px;
 }
 
 
 
 
 /* for smaller laptop screens */
-@media screen and (max-height: 600px) {
+@media screen and (max-width: 600px) {
     .divs-to-animate {
         position: absolute;
         margin-top: 60px;
@@ -216,6 +224,7 @@
         position: absolute;
         margin-top: 60px;
         margin-bottom: 100px;
+        padding-bottom: 100px;
         border: 1px solid linear-gradient(45deg, #8058c5 30%, #4393da 70%);
         background: linear-gradient(45deg, #8058c5 30%, #4393da 70%);
         box-shadow: 0 3px 5px 2px rgba(200, 180, 255, .9);
@@ -236,3 +245,5 @@
         transition-timing-function: linear;
     }
 }
+
+/* smallest screens, laptops. */

@@ -17,7 +17,7 @@ const BaseNav = () => {
             </div>
             <div className={container.link}>
                 <NavLink exact to='/about' className={container.linkText}>
-                What is JellyNettle?</NavLink>
+                What's JellyNettle?</NavLink>
             </div>
             <div className={container.link}>
                 <NavLink exact to='/login' className={container.linkText}>

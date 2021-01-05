@@ -97,7 +97,7 @@ class About extends React.Component {
                         <NavLink exact to='signup' className='safetyLink'>Sign up here.</NavLink>
                     </div>
                 </div>
-                <div className='buffer'></div>
+                <div className='buffer-about'></div>
             </div>
         )
     }
