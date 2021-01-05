@@ -1,7 +1,7 @@
 /* for large screens */
 
 .buffer-about{
-    margin-top: 1200px;
+    margin-top: 1050px;
     min-height: 100px;
     min-width: 100%;
 }
@@ -121,7 +121,6 @@
     transition-duration: 0.5s;
     transition-property: right;
     transition-timing-function: linear;
-    margin-bottom: 100px;
 }
 
 
@@ -224,7 +223,6 @@
         position: absolute;
         margin-top: 60px;
         margin-bottom: 100px;
-        padding-bottom: 100px;
         border: 1px solid linear-gradient(45deg, #8058c5 30%, #4393da 70%);
         background: linear-gradient(45deg, #8058c5 30%, #4393da 70%);
         box-shadow: 0 3px 5px 2px rgba(200, 180, 255, .9);
@@ -247,3 +245,121 @@
 }
 
 /* smallest screens, laptops. */
+
+@media screen and (max-width: 450px) {
+    .divs-to-animate {
+        position: absolute;
+        margin-top: 60px;
+        margin-bottom: 100px;
+        border: 1px solid linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        background: linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        border-radius: 3px;
+        width: 300px;
+        height: 200px;
+        left: -300px;
+        transition-duration: 0.5s;
+        transition-property: left;
+        transition-timing-function: linear;
+    }
+
+    .animate {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin-top: 60px;
+        margin-bottom: 100px;
+        border: 1px solid linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        background: linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        box-shadow: 0 3px 5px 2px rgba(200, 180, 255, .9);
+        border-radius: 3px;
+        width: 300px;
+        height: 200px;
+        left: 80px;
+        transition-duration: 0.5s;
+        transition-property: left;
+        transition-timing-function: linear;
+    }
+
+    .divs-to-animate2 {
+        position: absolute;
+        margin-top: 60px;
+        margin-bottom: 100px;
+        border: 1px solid linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        background: linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        border-radius: 3px;
+        width: 300px;
+        height: 200px;
+        bottom: -800px;
+        right: -300px;
+        transition-duration: 0.5s;
+        transition-property: right;
+        transition-timing-function: linear;
+    }
+
+    .animate2 {
+        /* display: flex; */
+        flex-direction: column;
+        position: absolute;
+        margin-top: 60px;
+        margin-bottom: 100px;
+        bottom: -800px;
+        border: 1px solid linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        background: linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        box-shadow: 0 3px 5px 2px rgba(200, 180, 255, .9);
+        border-radius: 3px;
+        width: 300px;
+        height: 200px;
+        right: 80px;
+        transition-duration: 0.5s;
+        transition-property: right;
+        transition-timing-function: linear;
+    }
+
+    .divs-to-animate3 {
+        position: absolute;
+        margin-top: 60px;
+        margin-bottom: 100px;
+        border: 1px solid linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        background: linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        box-shadow: 0 3px 5px 2px rgba(200, 180, 255, .9);
+        border-radius: 3px;
+        width: 300px;
+        height: 200px;
+        bottom: -1050px;
+        left: -300px;
+        transition-duration: 0.5s;
+        transition-property: left;
+        transition-timing-function: linear;
+    }
+
+    .animate3 {
+        left: 80px;
+        transition-duration: 0.5s;
+        transition-property: left;
+        transition-timing-function: linear;
+    }
+
+    .divs-to-animate4 {
+        position: absolute;
+        margin-top: 60px;
+        margin-bottom: 100px;
+        border: 1px solid linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        background: linear-gradient(45deg, #8058c5 30%, #4393da 70%);
+        box-shadow: 0 3px 5px 2px rgba(200, 180, 255, .9);
+        border-radius: 3px;
+        width: 300px;
+        height: 200px;
+        bottom: -1300px;
+        right: -300px;
+        transition-duration: 0.5s;
+        transition-property: right;
+        transition-timing-function: linear;
+    }
+
+    .animate4 {
+        right: 80px;
+        transition-duration: 0.5s;
+        transition-property: right;
+        transition-timing-function: linear;
+    }
+}
