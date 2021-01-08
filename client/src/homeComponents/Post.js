@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import Comments from './Comments';
@@ -7,12 +7,17 @@ import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';
 
 const Post = ({post}) => {
 
+    const arrow = useRef()
+
     const handleDropDown = (e) => {
-        console.log(e.target)
         if(dropBool){
             setDropBool(false)
+            arrow.current.classList.remove('commentsIconOpen')
+            arrow.current.classList.add('commentsIcon')
         } else {
             setDropBool(true)
+            arrow.current.classList.remove('commentsIcon')
+            arrow.current.classList.add('commentsIconOpen')
         }
     }
 
@@ -31,7 +36,7 @@ const Post = ({post}) => {
             <div className='upvotes'></div>
             <div className='postNav'>
             <div className='commentsButton' onClick={handleDropDown}>Comments
-                <ArrowDropDownRoundedIcon onClick={handleDropDown} className='commentsIcon'/>
+                <ArrowDropDownRoundedIcon ref={arrow} onClick={handleDropDown} className='commentsIcon'/>
             </div>
             <div className='likeButton'>Like</div>
             </div>

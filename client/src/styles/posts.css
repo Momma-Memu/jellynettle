@@ -107,7 +107,9 @@
 }
 
 .commentsIconOpen{
-    transform: rotate(90deg)
+    font-size: medium;
+    margin-left: 5px;
+    transform: rotate(0deg)
 }
 
 .likeButton{
