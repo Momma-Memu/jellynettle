@@ -130,3 +130,9 @@
     background-color: #5a5a5a42;
     border-radius: 5px;
 }
+
+.empty-thread{
+    color: white;
+    font-size: 14px;
+    margin: 20px;
+}

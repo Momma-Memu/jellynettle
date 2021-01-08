@@ -41,6 +41,8 @@ const Post = ({post}) => {
             <div className='likeButton'>Like</div>
             </div>
             {dropBool ? comments : null}
+            {!comments.length && dropBool ? <div className='empty-thread'>Wow! Such empty, be the first to comment.</div> : null}
+            <div className='makeCommentHidden'></div>
         </div>
     )
 }
